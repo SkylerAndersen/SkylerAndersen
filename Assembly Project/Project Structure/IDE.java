@@ -1,0 +1,40 @@
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.SourceDataLine;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+abstract public class IDE implements IDERequirements {
+    private ButtonListener listener;
+    private DynamicLookManager manager;
+    private JFrame frame;
+    private SimulatorData sim;
+    abstract public void runPressed ();
+    abstract public void terminatePressed ();
+    abstract public void resetPeripherals ();
+    abstract public void openGUI();
+    abstract public void print(String message);
+    abstract public void println(String message);
+    abstract public void systemPrint(String message);
+    abstract public void systemPrintln(String message);
+    abstract void updateStackDisplay ();
+    abstract public void allocateMemory(int numWords);
+    abstract public void deallocateMemory(int numWords);
+    abstract public void setStackValue(int address, int value);
+    abstract public int getStackValue(int address);
+    abstract public void setRegister(String name, int value);
+    abstract public int getRegister(String name);
+    abstract public void drawRaster(int[] buffer);
+    abstract public void playSoundTrack(int[] buffer);
+    abstract byte[] generateWaveform (int frequency,int duration);
+    abstract void playAudio (byte[] waveform);
+    abstract public String[] getCode();
+    abstract public void addListener(ButtonListener listener);
+    abstract public int screenWidth ();
+    abstract public int screenHeight ();
+}
