@@ -1,0 +1,69 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb,amsfonts,amsmath}
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+Document 20: Orthogonality
+\end{center}
+
+Recall the following properties of orthogonality from the previous chapters. These will guide this section.
+\begin{enumerate}
+\item $\vec{v}\perp \vec{w}\Leftrightarrow \vec{v}\cdot\vec{w}=0$
+\item Length$(\vec{v})\equiv \text{norm}(\vec{v})$. $||\vec{v}||=\sqrt{\vec{v}\cdot\vec{v}}$
+\item $\vec{u}$ is a unit vector if $||\vec{u}||=1$
+\end{enumerate}
+
+\noindent
+Definition of Orthogonal: $\lbrace\vec{u}_1,\cdots,\vec{u}_m\rbrace\in\mathbb{R}^n$ are orthogonal if $||\vec{u}_i||=1$ and $\vec{u}_i\cdot\vec{u}_j=\left\lbrace\begin{matrix}1, & i=j\\0, & i\neq j\end{matrix}\right.$\\
+
+Let us now generalize the projection formula. Given $\vec{x},\lbrace\vec{u}_1,\cdots,\vec{u}_m\rbrace$, seeking $\vec{x}^\parallel=\text{proj}_V(\vec{x})$, we get $\vec{x}^\parallel=(\vec{x}\cdot\vec{u}_1)\vec{u}_1+(\vec{x}\cdot\vec{u}_2)\vec{u}_2+\cdots+(\vec{x}\cdot\vec{u}_m)\vec{u}_m$.
+
+There also exists some general properties of orthogonality. Let us consider the orthogonal compliment.\\
+
+\noindent
+Definition Orthogonal Compliment: Let $V$ be a subspace of $\mathbb{R}^n$. Then, the orthogonal compliment of $V$ is $V^\perp=\lbrace\vec{x}\in\mathbb{R}^n:\exists\vec{v}\in V,\vec{v}\cdot\vec{x}=0\rbrace$. Interestingly:
+\begin{enumerate}
+\item $V^\perp$ is also a subpsace of $\mathbb{R}^n$
+\item $V^\perp=\text{ker}(\text{proj}_V(\vec{x}))$
+\item $V\cap V^\perp =\lbrace\vec{0}\rbrace$
+\item dim$(V)+\text{dim}(V^\perp)=n$
+\item $(V^\perp)^\perp=V$\\
+\end{enumerate}
+
+Finding the orthogonal basis of a subspace $V$ can be done algorithmically through what is called the Gram-Schmidt Process.
+
+\newpage
+Given a basis of $V=\lbrace\vec{v}_1,\cdots,\vec{v}_m\rbrace$, we want the orthogonal basis $\lbrace\vec{u}_1,\cdots,\vec{u}_m\rbrace$. Find the vectors in the basis using the following equations:
+\begin{center}\begin{tabular}{l}
+$\vec{u}_1=\frac{\vec{v}_1}{||\vec{v}_1||}$\vspace{0.1 cm}\\
+$\vec{u}_2=\frac{\vec{v}_2^\perp}{||\vec{v_2}^\perp||},\vec{v_2}^\perp=\vec{v}_2-(\vec{u}_1\cdot\vec{v}_2)\vec{u}_1$\vspace{0.1 cm}\\
+$\vec{u}_3=\frac{\vec{v}_3^\perp}{||\vec{v}_3^\perp||},\vec{v}_3^\perp=\vec{v}_3-(\vec{u}_1\cdot \vec{v}_3)\vec{u}_1-(\vec{u}_2\cdot\vec{v}_3)\vec{u}_2$\vspace{0.1 cm}\\
+$\vdots$\vspace{0.1 cm}\\
+$\vec{u}_m=\frac{\vec{v}_m^\perp}{||\vec{v}_m^\perp||},\vec{v}_m^\perp=\vec{v}_m-(\vec{u}_1\cdot\vec{v}_m)\vec{u}_1-\cdots-(\vec{u}_{m-1}\cdot\vec{v}_m)\vec{u}_{m-1}$\\
+\end{tabular}\end{center}
+
+\noindent
+Definition Orthogonal Transformations: Let $T:\mathbb{R}^n\rightarrow\mathbb{R}^n$. $T$ is orthogonal if it preserves the length of vectors. $||T(\vec{x})||=||\vec{x}||,\forall\vec{x}\in\mathbb{R}^n$.\\
+
+\noindent
+Definition Orthogonal Matrix: If $T(\vec{x})=A\vec{x}$ is orthogonal, then $A$ is an orthogonal matrix and $||A\vec{x}||=||\vec{x}||$\\
+
+\noindent
+Property: Orthonormal Vectors: These vectors make up a basis for a given space. Hence, they are linearly independent and span the space.\\
+
+\noindent
+Properties of Orthogonality \& Transposes:
+\begin{enumerate}
+\item Let $T:\mathbb{R}^n\rightarrow\mathbb{R}^n$ be orthogonal. Let $\vec{v}\perp\vec{w}$, then $T(\vec{v})\perp T(\vec{w})$
+\item $T$ is orthogonal $\Leftrightarrow\left\lbrace T(\vec{e}_1),\cdots,T(\vec{e}_n)\right\rbrace$ forms an orthogonal basis of $\mathbb{R}^n$
+\item $A_{n\times m}\text{ is orthogonal}\Leftrightarrow\text{ its columns form an orthogonal basis of }\mathbb{R}^n$
+\item $A\text{ is orthogonal}\Leftrightarrow (A^T=A^{-1}\Rightarrow A^TA=I)$
+\item $A,\text{ and }B\text{ are orthogonal}\Rightarrow AB\text{ is orthogonal}$
+\item $A^{-1}$ is orthogonal $\Leftrightarrow A$ is orthogonal
+\item $A$ is symmetric if $A^T=A$
+\item $A$ is skew symmetric if $A^T=-A$
+\item $(AB)^T=B^TA^T$
+\item $A$ is invertable$\Rightarrow A^T,(A^T)^{-1},(A^{-1})^T$ are invertable
+\item rank$(A)=\text{rank}(A^T)$
+\end{enumerate}
+\end{document}

@@ -1,0 +1,975 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts,amsmath,amssymb,float}
+\pagestyle{empty}
+\parindent 0px
+\begin{document}
+\begin{center}
+Document 1: Linear Equations and General Systems
+\end{center}
+
+\setlength{\leftskip}{0.25 in}
+The general linear system looks like:
+
+$$a_{11}x_1+a_{12}x_{2}+\cdots+a_{1n}x_n=b_1$$
+\setlength{\leftskip}{1.3 in}
+$\vdots$
+$$a_{m1}x_1+a_{m2}x_{2}+\cdots+a_{mn}x_n=b_n$$
+
+\setlength{\leftskip}{0 in}
+
+$\,\,\,$ These would have $m$ equations with $n$ unknowns each. Any system of linear equations can have only three types of solutions: 0 solutions, 1 solution, or $\infty$ solutions.
+
+$\,\,\,$ For cases in $2D$, we visualize the solutions as overlapping for infinite solutions, parallel for no solution, and intersecting for a unique solution. In $3D$, three intersecting planes represent infinite solutions, no universal intersection point represents no solution, and one solution would be represented by planes all at 90 degrees, intersecting at one place (i.e. a plane in xy-space, one in yz-space, and one in xz-space).\\
+
+$\,\,\,$ Elementary Operations Theorem: This theorem provides a system for solving a general system of linear equations.
+
+\begin{enumerate}
+\item Interchange two equations: $E_i \leftrightarrow E_j$
+\item Multiplication by a scalar: $E_i \leftrightarrow sE_i$
+\item Addition of a constant multiple of one equation to another: $E_i \leftrightarrow E_i + kE_j$
+\end{enumerate}
+
+$\,\,\,$ This theorem gives way to early concepts such as solving a linear system of equations by elimination. For more generalized algorithmic solutions, we use matrices. An example of a system of equations and its matrix representations is shown below.
+
+$$\left.
+\begin{matrix}
+x_2+x_3=4\\
+x_1-x_2+2x_3=1\\
+2x_1+x_2-x_3=6
+\end{matrix}
+\right|
+A=
+\begin{bmatrix}
+0 & 1 & 1\\
+1 & -1 & 2\\
+2 & 1 & -1
+\end{bmatrix}
+,
+X=
+\begin{bmatrix}
+x_1\\
+x_2\\
+x_3
+\end{bmatrix}
+,
+b=
+\begin{bmatrix}
+4\\
+1\\
+6
+\end{bmatrix}
+$$
+
+\newpage
+\begin{center}
+Document 2: Solving Linear Systems
+\end{center}
+
+\setlength{\leftskip}{0in}
+$\,\,\,$ Gauss-Jordan Elimination: This is a strategy for solving linear equations. One example of Guass or Gauss elimination is below.
+
+Solve the following system:
+$
+\left\lbrace
+\begin{matrix}
+x_2+x_3=4\\
+x_1-x_2+2x_3=1\\
+2x_1+x_2-x_3=6
+\end{matrix}
+\right.
+$\\\\
+
+$\left[\left.\begin{matrix}
+0 & 1 & 1\\
+1 & -1 & 2\\
+2 & 1 & -1
+\end{matrix}
+\right|
+\begin{matrix}
+4\\
+1\\
+6
+\end{matrix}
+\right]
+$
+$\rightarrow$
+$\left[\left.\begin{matrix}
+2 & 1 & -1\\
+1 & -1 & 2\\
+0 & 1 & 1
+\end{matrix}
+\right|
+\begin{matrix}
+6\\
+1\\
+4
+\end{matrix}
+\right]
+\rightarrow$
+$\left[\left.\begin{matrix}
+2 & 1 & -1\\
+0 & -\frac{3}{2} & \frac{5}{2}\\
+0 & 1 & 1
+\end{matrix}
+\right|
+\begin{matrix}
+6\\
+-2\\
+4
+\end{matrix}
+\right]
+\rightarrow$
+$\left[\left.\begin{matrix}
+2 & 1 & -1\\
+0 & -3 & 5\\
+0 & 1 & 1
+\end{matrix}
+\right|
+\begin{matrix}
+6\\
+-4\\
+4
+\end{matrix}
+\right]
+\rightarrow$\\\\
+
+$\left[\left.\begin{matrix}
+2 & 1 & -1\\
+0 & -3 & 5\\
+0 & 0 & \frac{8}{3}
+\end{matrix}
+\right|
+\begin{matrix}
+6\\
+-4\\
+\frac{8}{3}
+\end{matrix}
+\right]
+$\\\\
+
+$\,\,\,$ Hence, the system is transformed into a new system.
+
+$$\begin{matrix}
+2x_1+x_2-x_3=6\\
+-3x_2+5x_3=-4\\
+8x_3=8
+\end{matrix}$$
+
+$\,\,\,$ This system is much easier to solve, but it can be reduced further. Guass-Jordan elimination leaves only numbers along the top-left to bottom-right diagonal. When multiplying rows, we often choose a reference point we call the pivot.
+
+$\,\,\,$ Given a different set of equations, lets solve the system with Gauss-Jordan elimination. We will reduce the matrix to echelon form.
+
+$\,\,\,$ Let the system be $\left\lbrace\begin{matrix}x_1+x_2+x_3+4x_4=4\\2x_1+3x_2+4x_3+9x_4=16\\-2x_1+3x_3-7x_4=11\end{matrix}\right.$.\\
+
+$\,\,\,$ We rewrite the system in matrix form and transform it to reduced row echelon form by performing operations on each row, or adding rows to other rows.
+
+$$\left[\left.\begin{matrix}
+1 & 1 & 1 & 4\\
+2 & 3 & 4 & 9\\
+-2 & 0 & 3 & -7
+\end{matrix}\right|
+\begin{matrix}
+4\\16\\11
+\end{matrix}\right]
+\rightarrow
+\left[\left.\begin{matrix}
+1 & 1 & 1 & 4\\0 & 1 & 2 & 1\\0 & 2 & 5 & 1
+\end{matrix}\right|
+\begin{matrix}
+4\\8\\19
+\end{matrix}\right]
+\rightarrow
+\left[\left.\begin{matrix}
+1 & 0 & -1 & 3\\0 & 1 & 2 & 1\\0 & 0 & 1 & -1
+\end{matrix}\right|
+\begin{matrix}
+-4\\8\\3
+\end{matrix}\right]
+\rightarrow
+$$$$
+\left[\left.\begin{matrix}
+1 & 0 & 0 & 2\\0 & 1 & 0 & 3\\0 & 0 & 1 & -1
+\end{matrix}\right|
+\begin{matrix}
+-1\\2\\3
+\end{matrix}\right]
+$$\\
+
+$\,\,\,$ After reducing this matrix to echelon form, we have the following system of equations, where $x_4$ is considered a “free parameter".
+$$\left\lbrace\begin{matrix}
+x_1+2x_4=-1\\x_2+3x_4=2\\x_3-x_4=3
+\end{matrix}\right.=\left\lbrace\begin{matrix}
+x_1=-1-2x_4\\x_2=2-3x_4\\x_3=3+x_4\\x_4=x_4
+\end{matrix}\right.$$
+$\,\,\,$ In cases of a free parameter, we often use the variable $t$; hence, here we define $t=x_4$, and redefine our solution set using the following matrices.
+$$\begin{bmatrix}
+x_1\\x_2\\x_3\\x_4
+\end{bmatrix}
+=
+\begin{bmatrix}
+-1\\2\\3\\0
+\end{bmatrix}
++t
+\begin{bmatrix}
+-2\\-3\\1\\1
+\end{bmatrix}$$
+
+$\,\,\,$ This system has infinite solutions. A system that has no solution would have a row of all zeros, with a non-zero number on the right hand side of the vertical line. Below are some useful terms to describe behaviors we have see while solving the systems.\\
+
+Definition: an $m$ x $n$ matrix is in Row Echelon Form if
+
+\begin{enumerate}
+\item All zero rows appear at the bottom.
+\item If a row has nonzero entries, then the first nonzero entry is 1 (This is called the leading one).
+\item If a row contains a leading one, then each row above contains a leading one further to the left.
+\end{enumerate}
+
+Definition: an $m$ x $n$ matrix is in Reduced Row Echelon Form if
+
+\begin{enumerate}
+\item All zero rows appear at the bottom.
+\item If a row has nonzero entries, then the first nonzero entry is 1 (This is called the leading one).
+\item If a row contains a leading one, then each row above contains a leading one further to the left.
+\item If a column contains a leading one, then all other entries in that column are zero.
+\end{enumerate}
+
+\newpage
+\begin{center}
+Document 3: Reduced Row Echelon Form and Rank
+\end{center}
+
+\setlength{\leftskip}{0 in}
+$\,\,\,$ Definition: The rank of a matrix A is the number of leading 1s in the reduced row echelon form of A.
+
+Corollary: Consider $A_{m\text{x}n}x_{n\text{x}1}=b_m$.
+\begin{enumerate}
+\item rank($A$) $\leq m \land$ rank($A$) $\leq n$. Proof: There is at most one leading 1 in each row or colum of the reduced row echelon form.
+\item Let $A,b$ be matrices. Define an augmented matrix $\left[\left.A\right|b\right]$. Then, rank($A$)$=m\rightarrow Ax=b$ is consistent. Proof: Let $c$ be any nonzero number. A redundancy is defined as $\left[\left.0+0+\cdots+0\right| c\right]$. There is a leading 1 in each row, so $\left[\left.0+0+\cdots+0\right| c\right]\not\in A$
+\item If rank$(A)=n$ then $Ax=b$ has at most one solution.
+\item rank($A$) $<n\rightarrow$ there are $n-\text{rank(}A$) free parameters. Either $Ax=b$ is inconssitent or it has $\infty$-many solutions.
+\end{enumerate}
+
+$\,\,\,$ Definition: a matrix is considered consistent if it represents a system of linear equations that has 1 or more solutions. If the system has no solution, or equally if the matrix has a determinant of 0, then the matrix is considered inconsistent. Now, consider the following matrices.
+$$A=\left[ \begin{matrix}
+a_{11}\cdots a_{1n}\\
+\vdots\\
+a_{m1}\cdots a_{mn}
+\end{matrix}\right] _{m\text{x}n},
+B=\left[ \begin{matrix}
+b_{11}\cdots b_{1n}\\
+\vdots\\
+b_{m1}\cdots b_{mn}
+\end{matrix}\right] _{m\text{x}n},
+C=\left[ \begin{matrix}
+c_{11}\cdots c_{1n}\\
+\vdots\\
+c_{r1}\cdots c_{rn}
+\end{matrix}\right] _{n\text{x}r}$$
+
+$\,\,\,$ Basic matrix algebra is defined as follows. Let k be a scalar, and use matrices $A,B$ and $C$.
+\begin{enumerate}
+\item Equality: $A=B\leftrightarrow a_{ij}=b_{ij}$ where $i$ and $j$ are typical indices for rows and columns in matrices $A$ and $B$.
+\item Addition/Subtration: $A\pm B=\left[ a_{ij}\pm b_{ij}\right]$. In other words $A\pm B$ is a matrix where every value at indices $i,j$ is equal to $a_{ij}\pm b_{ij}$.
+\item Scalar Multiplication: $kA=\left[ ka_{ij}\right]$. In other words $kA$ is a matrix where every value at indices $i,j$ is equal to $ka_{ij}$.
+\item Matrix Multiplication: $P_{m\text{x}r}=A_{m\text{x}n}C_{n\text{x}r}$. Where elements of $P$ are determined using the following process. Let $i$ represent indices for rows, drawn from the domain $1\leq i\leq m$. Let $j$ represent indices for columns, drawn from the domain $1\leq j \leq r$. Elements of the matrix are defined $p_{ij}=\sum_{k=1}^{n} a_{ik}c_{kj}$.
+\end{enumerate}
+
+$\,\,\,$ Product of matricies are defined this way in order to preserve constancy with the composition of linear transformations.\\
+
+Algebra of Vectors:\\
+
+Let $\vec{u}=\left[\begin{matrix}u_1\\\vdots\\u_n\end{matrix}\right]$,
+$\vec{v}=\left[\begin{matrix}v_1\\\vdots\\v_n\end{matrix}\right]$,
+$A_{m\text{x}n}$ be a matrix with $m$ rows and $n$ columns.\\\\
+
+$\,\,\,$ We will use these definitions as we explore the matrix representations of vectors and performing algebra with them. Below, we have these definitions of vector algebra.
+\begin{enumerate}
+\item Scalar Multiplication: $k\vec{u}=\begin{bmatrix}ku_1\\ \vdots\\ku_n \end{bmatrix}$.
+\item Dot Product (Scalar Product of Vectors): $\vec{u}\cdot\vec{v}=u_1v_1+\cdots +u_nv_n$.
+\item Outer Product (Not Cross Product): $\vec{u}\text{x}\vec{v}=\begin{bmatrix}u_1v_1 & u_1v_2 & \cdots & u_1v_n\\
+\vdots\\
+u_nv_1 & u_nv_2 & \cdots & u_nv_n
+\end{bmatrix}$
+\item Matrix Multiplication: Matrices can be divided into columns and multiplied by a vector in parts. This is equivalent to simple matrix multiplication defined before. An equation demonstrating this multiplication can be found below. $$A\vec{x}=\begin{bmatrix}\!\left. A_1 \right| & \left. \!\!\!\! A_2 \right| & \!\!\!\! \left. \cdots \right| & \!\!\!\! A_n\end{bmatrix}\begin{bmatrix}x_1\\ x_2\\ \vdots\\ x_n\end{bmatrix}=A_1x_1+A_2x_2+\cdots+A_nx_n$$.
+\end{enumerate}
+
+Linear Combinations:\\
+
+$\,\,\,$ Finally, we say that a vector $\vec{b}\in\mathbb{R}^n$ is a linear combination if there exists scalars $c_1,\cdots,c_m$, and vectors $\vec{v}_1,\vec{v}_2,\cdots,\vec{v}_m\in\mathbb{R}^n$ such that $\vec{b}=c_1\vec{v_1}+c_2\vec{v_2}+\cdots+c_m\vec{v_m}$. Additionally, the right hand side is considered the span of the vector.
+
+\newpage
+\begin{center}
+Document 4: Data Encoding
+\end{center}
+
+\setlength{\leftskip}{0 in}
+$\,\,\,$ Briefly, lets review matrix multiplication. Define the following matrices $A$ and $B$.
+$$A=\begin{bmatrix}
+1 & 2 & 3\\4 & 5 & 6
+\end{bmatrix},
+B=\left[\begin{matrix}
+-1 & -4\\-2 & 5\\-3 & 6
+\end{matrix}\right]$$
+
+Multiplying components, we can expand the equation. 
+$$AB=\begin{bmatrix}
+a & b\\ c & d
+\end{bmatrix},a=\begin{bmatrix}
+1 & 2 & 3
+\end{bmatrix}\begin{bmatrix}
+-1\\-2\\-3
+\end{bmatrix},b=\begin{bmatrix}
+1 & 2 & 3
+\end{bmatrix}
+\begin{bmatrix}
+-4\\5\\6
+\end{bmatrix},
+c=
+\begin{bmatrix}
+4 & 5 & 6
+\end{bmatrix}
+\begin{bmatrix}
+-1\\-2\\-3
+\end{bmatrix},
+$$
+$$d=\begin{bmatrix}
+4 & 5 & 6
+\end{bmatrix}
+\begin{bmatrix}
+-4\\5\\6
+\end{bmatrix}
+$$
+
+Going left to right in the first matrix, and top to bottom in the right matrix, we multiply elements of the matrix, and sum the products as such.
+
+$$a=1(-1)+2(-2)+3(-3),b=1(-4)+2(5)+3(6),c=4(-1)+5(-2)+6(-3),d=4(-4)+5(5)+6(6)$$
+
+Hence:
+
+$$a=-14,b=24,c=-32,d=45\Rightarrow AB=\begin{bmatrix}
+-14 & 24\\-32 & 45
+\end{bmatrix}$$
+
+$\,\,\,$ In 1D, given an equation $ax=b$, we have $x=\frac{b}{a}$ or $x=a^{-1}b$. In 2D, with matrices, given an equation $A_{2\text{x}2}x_{2\text{x}1}=b_{2\text{x}1}$, we cannot have $x=\frac{b}{A}$ because there is no division of matrices. However, we can take the inverse of a matrix and have $x=a^{-1}b$. To get an inverse of a matrix, we multiply the matrix by the reciprocal of its determinant.
+
+$\,\,\,$ Given the following matrix, we have determinant $D=1*4-2*3=-2$.
+$$A=\begin{bmatrix}
+1 & 2\\3 & 4
+\end{bmatrix}$$
+
+$\,\,\,$ Matrices can be used as complicated functions with multiple variables. We can input systems of equations, multiply by the transformation matrix, and get an new matrix as output. The input is transformed from the decoded space to the encoded space. If you have a system of equations in x, then define it in y, we can call the matrix corresponding with x $A$, and the matrix corresponding with y $A^{-1}$.
+
+Given the system$\left\lbrace\begin{matrix}
+x_1+3x_2=y_1\\2x_1+5x_2=y_2
+\end{matrix}\right.$, we have the corresponding matrix. To solve the system, we place it into reduced row echelon form.
+$$A=\left[\left.\begin{matrix}
+1 & 3\\2 & 5
+\end{matrix}\right|\begin{matrix}
+y_1\\y_2
+\end{matrix}\right]=
+\left[\left.\begin{matrix}
+1 & 0\\0 & 1
+\end{matrix}\right|\begin{matrix}
+3y_2-5y_1\\-y_2+2y_1
+\end{matrix}\right]$$
+
+$\,\,\,$ The reduced row echelon form of the above equation yields the following system, which can be represented using matrices involving the input set containing $x_1,x_2$ and the solution set involving $y_1,y_2$.
+
+$$\text{system}=
+\left\lbrace\begin{matrix}
+x_1=3y_2-5y_1\\ x_2=-y_2+2y_1
+\end{matrix}\right. ,\,\Rightarrow \begin{bmatrix}
+x_1\\x_2
+\end{bmatrix}
+=\begin{bmatrix}
+-5 & 3\\ 2 & -1
+\end{bmatrix}
+\begin{bmatrix}
+y_1\\y_2
+\end{bmatrix}
+$$
+
+$\,\,\,$ The second matrix performs a transformation from $y$ to $x$, where the matrix $A$ performed an transformation from $x$ to $y$. These transformations are exactly opposite, and hence we call this matrix $A^{-1}$.
+
+$\,\,\,$ We can apply linear transformations in matrices. Matrices are not commutative, so the order of multiplication is important, just as it is for composition of functions. Given matrices to multiply $A,B,$ and $X$, we define $A*B*X$ as equal to $A*(B*X)$. Imagining the matrices are functions, $X$ goes into $B$ goes into $A$ to produce the output $A*B*X$.
+
+$\,\,\,$ Definition: A function $T:\mathbb{R}^n\rightarrow\mathbb{R}^m$ is a linear transformation if there is an $m\text{x}n$ matrix $A$ such that $$T(\vec{x})=A\vec{x},\forall \vec{x}\in\mathbb{R}^n$$. 
+
+$\,\,\,$ We say $T$ is acting on vector $\vec{x}$.
+
+$\,\,\,$ There are many other transformations that can be represented by matrices. Given a plane defined by some values $x_1,x_2$, we have a matrix representation that we can scale and shift to yield a new transformed plane in our solution space. For example, lets define a plane, linearly scale it down by $\frac{1}{2}$, and shift it left by $\frac{1}{2}$.
+$$\begin{bmatrix}
+\frac{1}{2} & 0\\ 0 & \frac{1}{2}
+\end{bmatrix}
+\begin{bmatrix}
+x_1\\x_2
+\end{bmatrix}+\begin{bmatrix}
+\frac{1}{2}\\ \frac{1}{2}
+\end{bmatrix}
+=\begin{bmatrix}
+y_1\\y_2
+\end{bmatrix}
+$$
+
+$\,\,\,$ Beyond scaling and rotating, we can also perform rotations. Let $T$ be a transformation matrix for a rotation by $90^{\circ}$ of the $xy$-plane. $T\equiv R_{90^\circ}$ $$T=\begin{bmatrix}
+0 & -1\\1 & 0
+\end{bmatrix}=\begin{bmatrix}
+\cos(\theta) & -\sin(\theta)\\ \sin(\theta) & \cos(\theta)
+\end{bmatrix}$$
+
+\newpage
+\begin{center}
+Document 5: Linear Transformations
+\end{center}
+
+\setlength{\leftskip}{0 in}
+$\,\,\,$ We define a test used to see if a transformation is linear. For the definition of linearity and test, we use two vectors that have the following definitions.
+$$\text{Let } k \text{ be an arbitrary scalar. Set } \vec{v}=\begin{bmatrix}v_1\\v_2\end{bmatrix},\vec{w}=\begin{bmatrix}w_1\\w_2\end{bmatrix}
+$$
+
+Definition: A transformation $T:\mathbb{R}^n\rightarrow \mathbb{R}^m$ is linear if and only if.
+\begin{enumerate}
+\item $T(\vec{v}+\vec{w})=T(\vec{v})+T(\vec{w})$.
+\item $T(k\vec{v})=kT(\vec{v})$.\\
+\end{enumerate}
+
+$\,\,\,$Let $m,n\in\mathbb{Z}$ be arbitrary. Define $T:\mathbb{R}^m\rightarrow\mathbb{R}^n$. If the transformation is linear, then there must be a matrix, $A$, called the standard matrix, such that $T(\vec{x})=A\vec{x}$.
+
+\newpage
+\begin{center}
+Document 6: Projections in Linear Space
+\end{center}
+
+\setlength{\leftskip}{0 in}
+$\,\,\,$ Here are how projections work. We are given $\vec{x}$ and line $l$, where $l$ may be $ax+by=c$ or $\vec{u}$. such that $||u||=1$. We want proj$_l(\vec{x})=\vec{x}^{\parallel}$. We know $\vec{x}=\vec{x}^{\parallel}+\vec{x}^{\perp}$. Parallel and perpendicular are the vector components. Lets look at what our want looks like in mathematical terms:
+$$T(\vec{x})=\vec{x}^{\parallel}$$
+$$\vec{x}^{\parallel}=k\hat{u}$$
+$$\vec{x}^{\perp}=\vec{x}-\vec{x}^{\parallel}=\vec{x}-k\hat{u}\perp L(\hat{u})$$
+$$\Rightarrow (\vec{x}-k\hat{u})\cdot\hat{u}=0$$
+$$\vec{x}\cdot\vec{u}-k(\vec{u}\cdot\vec{u})=0$$
+$$k||\hat{u}||^2=\vec{x}\cdot\hat{u}$$
+$$\Rightarrow k=\vec{x}\cdot\hat{u}$$
+
+$\,\,\,$ Our solution: $\vec{x}^{\parallel}=(\vec{x}\cdot\hat{u})\hat{u}$, so proj$_L(\vec{x})=(\vec{x}\cdot\hat{u})\hat{u}$. This is how to find the projection for any matrix.
+
+$\,\,\,$ We introduce a new term, span, which lets us create planes between vectors. Consider the following.
+
+$$\text{Let }\vec{x}=\begin{bmatrix}2\\-1\end{bmatrix},L=\text{span}\left\lbrace\begin{bmatrix}4\\3\end{bmatrix}\right\rbrace=\text{span}\lbrace \vec{v}\rbrace$$
+
+$$L=c\vec{v},||\vec{v}||=\sqrt{4^2+3^2}=5$$
+
+$$\text{Let }\vec{u} \text{ be a unit vector equal to }\hat{u},\vec{u}=\frac{\vec{v}}{||\vec{v}||}$$
+
+\newpage
+\begin{center}
+MATRIX REPRESENTATIONS AND FORMULAS
+\end{center}
+
+Projections:
+
+proj$_L(\vec{x})=(\vec{x}\cdot\vec{u})\vec{u}=\left(\begin{bmatrix}x_1\\x_2\end{bmatrix}\times\begin{bmatrix}u_1\\u_2\end{bmatrix}\right)\times\begin{bmatrix}u_1\\u_2\end{bmatrix}=(x_1u_1+x_2u_2)\begin{bmatrix}u_1\\u_2\end{bmatrix}=\begin{bmatrix}(u_1)^2x_1+u_1u_2x_2\\u_1u_2x_1+(u_2)^2x_2\end{bmatrix}=\begin{bmatrix}(u_1)^2 & u_1u_2\\u_1u_2 & (u_2)^2\end{bmatrix}\begin{bmatrix}x_1\\x_2\end{bmatrix}$\\\\
+
+Reflections:
+
+$\,\,\,$ Begin with a line $L$, input vector $\vec{x}$, we want to get a reflection of the line, called ref$_L(\vec{x})$.
+
+We begin with $\vec{x}=\vec{x}^\parallel+\vec{x}^\perp$. The reflection is ref$_L(\vec{x})=\vec{x}^\parallel-\vec{x}^\perp=\vec{x}^\parallel-(\vec{x}-\vec{x}^\parallel)=2\vec{x}^\parallel -\vec{x}$.
+
+So, ref$_L(\vec{x})=2\text{proj}_L(\vec{x})-\vec{x}=2\begin{bmatrix}(u_1)^2 & u_1u_2\\u_1u_2 & (u_2)^2\end{bmatrix}\begin{bmatrix}x_1\\x_2\end{bmatrix}-\begin{bmatrix}x_1\\x_2\end{bmatrix}$\\\\
+
+Rotations (anticlockwise):
+
+$\,\,\,$ Visually, we have $\vec{x}$ with a certain rise and run that we want to rotate. Imagine sweeping $\vec{x}$ anticlockwise 90 degrees. The original $x$ component would now be the $y$, and the original $y$ component would now be the same magnitude of the new $x$ component, but opposite direction. We call this new vector, orthogonal to $\vec{x}$, $\vec{y}$. If we use more formal names, lets call the $x$ component of $\vec{x}$, $x_1$, and the $y$ component of $\vec{x}$, $x_2$. Thus we have the following.
+$$\vec{x}=\begin{bmatrix}x_1\\x_2\end{bmatrix}\perp\vec{y}=\begin{bmatrix}x_2\\-x_1\end{bmatrix}$$
+$\,\,\,$ Both vectors are of equal magnitude. To find the $\vec{x}$ rotated anticlockwise $\theta$ degrees, we should scale each vector, $\vec{x}$ by $\cos(\theta)$, and $\vec{y}$ by $\sin(\theta)$. These two then become component vectors of our rotated vector. Thus, we have:
+$$R_\theta (\vec{x})=\cos(\theta)\vec{x}+\sin(\theta)\vec{y}$$
+$$R_\theta (\vec{x})=\cos(\theta)\begin{bmatrix}x_1\\x_2\end{bmatrix}+\sin(\theta)\begin{bmatrix}-x_2\\x_1\end{bmatrix}$$
+$$R_\theta (\vec{x})=\begin{bmatrix}\cos(\theta)x_1-\sin(\theta)x_2\\\cos(\theta)x_2+\sin(\theta)x_1\end{bmatrix}=\begin{bmatrix}\cos(\theta)x_1-\sin(\theta)x_2\\\sin(\theta)x_1+\cos(\theta)x_2\end{bmatrix}$$
+$$\text{Hence, } R_\theta (\vec{x})=\begin{bmatrix}\cos(\theta) & -\sin(\theta)\\\sin(\theta) & \cos(\theta)\end{bmatrix}\begin{bmatrix}x_1\\x_2\end{bmatrix}$$
+
+\newpage
+\begin{center}
+Document 7: Linear Transformations
+\end{center}
+
+\setlength{\leftskip}{0 in}
+Conceptual review of rotations:\\
+
+$\,\,\,$ We are given a vector $\vec{x}$ broken up into a vertical component $x_2$ and a horizontal component $x_1$, which is rotated up into quadrant 1 by an angle $\alpha$. We want to rotate this vector by an angle $\theta$ about the origin from its current position of $\alpha$ above the positive $x$-axis. First, we know $x_1=|\vec{x}|\cos(\alpha)$ and $x_2=|\vec{x}|\sin(\alpha)$. After the transformation, we will have $x_1\prime=|\vec{x}|\cos(\alpha +\theta)$ and $x_2\prime=|\vec{x}|\sin(\alpha +\theta)$. Therefore, $x_1\prime=|\vec{x}|\cos(\alpha)\cos(\theta)-|\vec{x}|\sin(\alpha)\sin(\theta)$ and $x_2\prime=|\vec{x}|\sin(\alpha)\cos(\theta)+|\vec{x}|\sin(\theta)\cos(\alpha)$. Hence, we have $x_1\prime=x_1\cos(\theta)-x_2\sin(\theta)$ and $x_2\prime=x_1\cos(\theta)+x_2\cos(\alpha)$.\\\\
+
+\begin{center}
+SUMMARY TABLE: Transformations Table\\
+\end{center}
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Name & Formula & Matrix Representation\\\hline
+Projection & proj$_L(\vec{x})=(\vec{x}\cdot\vec{u})\vec{u}$ & $A=\begin{bmatrix}(u_1)^2 & u_1u_2\\u_1u_2 & (u_2)^2\end{bmatrix}$\\
+Reflection & ref$_L(\vec{x})=2\text{proj}_L(\vec{x})-\vec{x}$ & $A=\begin{bmatrix}2(u_1)^2-1 & 2u_1u_2\\2u_1u_2 & 2(u_2)^2-1\end{bmatrix}$\\
+Rotation & $R_{\theta}\begin{bmatrix}x_1\\x_2\end{bmatrix}=e^{i\theta}\vec{z}$ & $R_\theta=\begin{bmatrix}
+\cos(\theta) & -\sin(\theta)\\\sin(\theta) & \cos(\theta)\end{bmatrix}$\\\hline
+\end{tabular}
+\end{center}
+
+$z=\begin{bmatrix}x_1\\x_2\end{bmatrix}$ or $z=x_1+x_2i_1$, $i=\sqrt{-1}$.
+
+Eulers Identity says:
+$e^{i\theta}(x_1+x_2i)=(\cos(\theta)+\sin(\theta)i$
+
+\newpage
+\begin{center}
+Document 8: Projections and Reflections in 3D
+\end{center}
+
+\setlength{\leftskip}{0 in}
+$\,\,\,$ We envision a vector in 3D space. We equally have a plane we want to project the vector onto, where both the vector and the plane are at the origin. Now, lets add a line orthogonal to the plane. On the same side as the vector, on the line, is $\vec{x}^\parallel$, opposite it is the inverse projection of $\vec{x}$ onto the line. On the plane, we have $\vec{x}^\perp$, the projection on the plane. The plane, we call $V$.\\
+
+$\,\,\,$ We have four unique equations representing the relationships between all these values:
+\begin{enumerate}
+\item $\text{proj}_L(\vec{x})=(\vec{x}\cdot\vec{u})\vec{u}$
+\item $\text{proj}_V(\vec{x})=\vec{x}-(\vec{x}\cdot\vec{u})\vec{u}$
+\item $\text{ref}_L(\vec{x})=2(\vec{x}\cdot\vec{u})\vec{u}-\vec{x}$
+\item $\text{ref}_V(\vec{x})=\vec{x}-2(\vec{x}\cdot\vec{u})\vec{u}$
+\end{enumerate}
+
+$\,\,\,$ The derivation of the essential properties is as follows:
+$$\text{Let }x\in\mathbb{R}^3,\vec{x}=\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix},
+\text{Recall }\vec{x}=\vec{x}^\parallel+\vec{x}^\perp.$$
+$$\vec{x}^\parallel=\text{proj}_L(\vec{x})=(\vec{x}\cdot\vec{u})\vec{u}$$
+$$\vec{x}^\perp=\text{proj}_V(\vec{x})$$
+$$\vec{x}^\perp=\text{proj}_V(\vec{x})=\vec{x}-\vec{x}^\parallel=\vec{x}-\text{proj}_L(\vec{x})$$
+$$\vec{x}^\perp=\vec{x}-(\vec{x}\cdot\vec{u})\vec{u}$$
+$$\text{ref}_L(\vec{x})=\text{proj}_L(\vec{x})-\text{proj}_V(\vec{x})=\text{proj}_L(\vec{x})-(\vec{x}-\text{proj}_L(\vec{x}))=2\text{proj}_L(\vec{x})-\vec{x}=2(\vec{x}\cdot\vec{u})\vec{u}-\vec{x}$$
+$$\text{ref}_V(\vec{x})=\text{proj}_V(\vec{x})-\text{proj}_L(\vec{x})=-\text{ref}_L(\vec{x})=\vec{x}-2(\vec{x}\cdot\vec{u})\vec{u}$$\\
+
+$\,\,\,$ These transformations are linear transformations, and hence we may have an inverse transformation.\\
+\newpage
+$\,\,\,$ Definition: A function $T:X\rightarrow Y$ is invertible if $T(x)=y$ has a unique solution $x\in X$ for each $y\in Y$. We define the inverse function of $T$, written $T^{-1}$, from $Y$ to $X$, $x=T^{-1}(y)$. For matrices, consider $x\in\mathbb{R}^n\begin{matrix}A_{n\text{x}m}\\ \rightarrow \end{matrix}y\in\mathbb{R}^m$, with $\vec{y}=A\vec{x}$.
+We say $A\vec{x}$ is invertible if $A\vec{x}=\vec{y}$ has a unique solution $\vec{x}\in\mathbb{R}^n$ for all $\vec{y}\in\mathbb{R}^m$. We define the inverse of $A$ as $A^{-1}$.\\
+
+Defining when a matrix is invertible:
+$A_{m\text{x}n}$ is invertible if and only if:
+\begin{enumerate}
+\item $A$ is a square matrix, and $m=n$
+\item rref$(A)=I_{m\text{x}n}$
+\end{enumerate}
+
+$\,\,\,$ It is useful to note that additionally for a homogeneous system of equations, $A\vec{x}=\vec{0}$, we reduce the possible cases for solutions from three, to two; There must be either infinite solutions, or just 1 solution. No solutions is not an option, and if there is one solution, then $\vec{x}=\vec{0}$.
+
+$\,\,\,$ There are a couple useful property to note when dealing with a homogeneous system. $A$ is invertible $\Leftrightarrow \vec{x}=\vec{0}$ and $A$ is not invertible $\Leftrightarrow \vec{x}$ has infinite solutions.
+
+$\,\,\,$ One last thing to note: when a matrix is invertible, $A\vec{x}=b\Rightarrow\vec{x}=A^{-1}b$.
+
+\newpage
+\begin{center}
+Document 9: Computing the inverse of a matrix
+\end{center}
+
+\setlength{\leftskip}{0in}
+$\,\,\,$ To compute the inverse of a matrix, write the augmented matrix $[A_{n\times n}|I_n]$, compute the reduced row echelon form of the augmented matrix, yielding the identity matrix on the right. In other terms, rref$([A|I])=[I|A^{-1}]$.
+
+$\,\,\,$ For the special case of a matrix $A_{2\times 2}=\begin{bmatrix}a & b\\c & d\end{bmatrix}$, $A$ is invertible $\Leftrightarrow$ det$(A)=ad-bc\not =0$. Let $A_{p\times n},B_{m\times p}$. Then $BA$ is defined and $T(\vec{x})=B(A\vec{x}),T:\mathbb{R}^n\rightarrow\mathbb{R}^m$ and $(BA)_{m\times n}$. In general, $BA\not =AB$ unless $A=B^{-1}$ and $B=A^{-1}$\\
+
+Definition: Matrix properties
+\begin{enumerate}
+\item Let $A_{q\times n},B_{m\times p}$ be arbitrary matrices. Then $BA$ is defined $\Leftrightarrow p=q$.
+\item Let $A_{p\times n},B_{m\times p}$ be arbitrary matrices. Then $BA$ is defined, and $BA_{m\times n}$ is the standard matrix for a transformation $T:\mathbb{R}^n\rightarrow\mathbb{R}^m,T(\vec{x})=B(A\vec{x})$
+\item For arbitrary matrices $A,B$ it is not guaranteed that $AB=BA$.\\
+\end{enumerate}
+
+Properties of Invertable Matrices:
+\begin{enumerate}
+\item Let $A_{n\times n}$ be an invertable matrix. Then, $AA^{-1}=I_n,A^{-1}A=I_n$.
+\item Let $A_{m\times n}$ be an invertable matrix. Then, $I_mA_{m\times n}=A_{m\times n}I_n=A$.
+\item Matrix multiplication is associative, so $(AB)C=A(BC)=ABC$.
+\item Let $A_{n\times n},B_{n\times n}$ be invertable matrices. Then $(AB)^{-1}=A^{-1}B^{-1}$.
+\item Let $A_{m\times p},B_{m\times p},C_{p\times n},D_{p\times n}$ be matrices. Then $A(C+D)=AC+AD$ and $(A+B)C=AC+BC$\\
+\end{enumerate}
+
+Criteria for Invertability: Let $A_{n\times n},B_{n\times n}$. Set $BA=I_n$. Then,
+\begin{enumerate}
+\item $A$ and $B$ are both invertible.
+\item $A^{-1}=B$, and $B^{-1}=A$
+\item $AB=I_n$
+\end{enumerate}
+
+\newpage
+\begin{center}
+Document 10: Multiplication of Block Matrices
+\end{center}
+
+\setlength{\leftskip}{0 in}
+$\,\,\,$ Sometimes when matrices get large, we can use block matrices to reduce the complexity of operations we must perform. A matrix can be divided into submatrices, and a the original matrix can now be expressed as a matrix of matrices. Consider the following:
+
+$$E=\begin{bmatrix}
+a & b & c\\d & e & f\\g & h & i
+\end{bmatrix}=\begin{bmatrix}
+\begin{bmatrix}
+a & b\\d & e
+\end{bmatrix} &
+\begin{bmatrix}
+c\\f
+\end{bmatrix}\\
+\begin{bmatrix}
+g & h
+\end{bmatrix} &
+\begin{bmatrix}
+i
+\end{bmatrix}
+\end{bmatrix}=\begin{bmatrix}
+A & B\\C & D
+\end{bmatrix}
+$$
+
+$\,\,\,$ When multiplying a block matrix, each submatrix is an element, and matrix multiplication can be performed as normal. Using the above example, we may demonstrate how $EE$ is computed.
+
+$$
+EE=\begin{bmatrix}
+A & B\\C & D
+\end{bmatrix}\begin{bmatrix}
+A & B\\C & D
+\end{bmatrix}=
+\begin{bmatrix}
+AA+BC & AB+BD\\AC+DC & CB+DD
+\end{bmatrix}
+$$
+
+$\,\,\,$ Since $A,B,C,\text{ and }D$ are all matrices, their products and sums follow all of the rules of standard matrix multiplication and addition. Next, lets examine how the span function is used.
+
+$\,\,\,$ Let $L=\text{span}\left\lbrace\begin{bmatrix}2\\-2\\-1\end{bmatrix}\right\rbrace$, $\vec{x}=\begin{bmatrix}2\\5\\1\end{bmatrix}$. To find the reflection of $\vec{x}$ about $L$, we use: ref$_L(\vec{x})=2(\vec{x}\cdot\vec{u})\vec{u}-\vec{x}$. Define $\vec{v}$ such that $L=\text{span}\left\lbrace\vec{v}\right\rbrace$. Now, find $\vec{u}$; this vector is a unit vector pointing in the same direction as $\vec{v}$. Hence, $\vec{u}=\frac{\vec{v}}{||\vec{v}||}$. Recall $||\vec{v}||=\sqrt{v_1^2+v_2^2+v_3^2}$, since $\vec{v}$ is in 3D space, and must have 3 elements.
+
+\newpage
+\begin{center}
+Document 11: Summary Section
+\end{center}
+
+\setlength{\leftskip}{0 in}
+$\,\,\,$ First, was linear equations. There are linear and nonlinear systems, and matrix representations. Additionally, elementary row operations. These are represented with $E_i,E_j$. One can compute a reduced row echelon form of a matrix, and classify solutions after reading the previous sections as well.
+
+Classification of solutions (Given $A_{m\times n}$):
+\begin{enumerate}
+\item rank$(A)\leq m,n$.
+\item rank$(A)=m$, the system is consistent.
+\item rank$(A)=n$, at most one solution.
+\item rank$(A)<n$, Either infinite solutions or none.
+\item rank$(A)\equiv$ Number of nonzero rows in rref.
+\end{enumerate}
+
+$\,\,\,$ Second, was Linear Transformations. One can prove if something is linear or nonlinear. Additionally, earlier sections covered the formulas for 2D transformations. Next, one can move to 3D, and learn the linear transformations in 3D from the previous sections as well.
+
+\begin{center}
+SUMMARY TABLE: Transformations Table
+\end{center}
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Name & Formula & Matrix Representation\\\hline
+Line Projection & proj$_L(\vec{x})=(\vec{x}\cdot\vec{u})\vec{u}$ & $A=\begin{bmatrix}(u_1)^2 & u_1u_2\\u_1u_2 & (u_2)^2\end{bmatrix}$\\
+Line Reflection & ref$_L(\vec{x})=2\text{proj}_L(\vec{x})-\vec{x}$ & $A=\begin{bmatrix}2(u_1)^2-1 & 2u_1u_2\\2u_1u_2 & 2(u_2)^2-1\end{bmatrix}$\\
+Plane Projection & proj$_V(\vec{x})=\vec{x}-(\vec{x}\cdot\vec{u})\vec{u}$ & $A=\begin{bmatrix}1-(u_1)^2 & u_1u_2\\u_1u_2 & 1-(u_2)^2\end{bmatrix}$\\
+Plane Reflection & ref$_V(\vec{x})=\vec{x}-2\text{proj}_L(\vec{x})$ & $A=\begin{bmatrix}1-2(u_1)^2 & -2u_1u_2\\-2u_1u_2 & 1-2(u_2)^2\end{bmatrix}$\\
+Rotation & $R_{\theta}\begin{bmatrix}x_1\\x_2\end{bmatrix}=e^{i\theta}\vec{z}$ & $R_\theta=\begin{bmatrix}
+\cos(\theta) & -\sin(\theta)\\\sin(\theta) & \cos(\theta)\end{bmatrix}$\\\hline
+\end{tabular}
+\end{center}
+
+$\,\,\,$ The inverse of a transformation is also something that previous sections cover. For a $2\times 2$ matrix, $A^{-1}=\frac{1}{\text{det}(A)}\begin{bmatrix}d & -b\\-c & a\end{bmatrix}$, where det$(A)=ad-bc$. Finally, previous sections covered the algebra of matrices and vectors.
+
+\newpage
+\begin{center}
+Document 12: Subspaces of $\mathbb{R}^n$
+\end{center}
+
+\setlength{\leftskip}{0in}
+$\,\,\,$ Let $X$ be the domain of a function $f$, and $Y$ be the codomain. For arbitrary elements $x,y$, $y=f(x),x=f^{-1}(y)$. Given a transformation $T(\vec{x})=\begin{bmatrix}\cos(x)\\\sin(x)\end{bmatrix}$, the transformation is nonlinear, with a domain $\mathbb{R}^1$, and a codomain $\mathbb{R}^2$. The image is a unit circle. Lets try another example. Use the following definition of $A$ for the following example.
+
+$$A=\begin{bmatrix}
+1 & 1\\1 & 2\\1 & 3
+\end{bmatrix}$$
+
+$\,\,\,$ Define a transformation $T(\vec{x})=A\vec{x},T:\mathbb{R}^2\rightarrow\mathbb{R}^3$. $T\left(\begin{bmatrix}x_1\\x_2\end{bmatrix}\right)=A\vec{x}=x_1\begin{bmatrix}1\\1\\1\end{bmatrix}+x_2\begin{bmatrix}1\\2\\3\end{bmatrix}$. Since $\vec{x}$ is arbitrary, $x_1,x_2$ are arbitrary. We are summing all arbitrary combinations of these two vectors. The image this creates is a plane.
+
+$\,\,\,$The sum of some number of terms defined by an arbitrary scalar multiplied by a specific vector is defined as the span of the specific vectors. However, there is a more formal definition.\\
+
+Definition: Let $m,n\in\mathbb{R}$ be arbitrary. Let $c_1,c_2,\cdots,c_n\in\mathbb{R}$ be arbitrary. Let $\vec{v_1},\vec{v_2},\cdots,\vec{v_n}\in\mathbb{R}^m$ be arbitrary vector. We define the span of vectors $\vec{v_1}$ through $\vec{v_n}$ as $c_1\vec{v_1}+c_2\vec{v_2}+\cdots+c_n\vec{v_n}$ and write span$\lbrace\vec{v_1},\vec{v_2},\cdots,\vec{v_n}\rbrace$.\\
+
+$\,\,\,$ Lets examine some essential properties of images of linear transformations. Then, we will summarize these properties and introduce a corollary.\\
+
+Properties:
+\begin{enumerate}
+\item $\vec{0}_m\in\mathbb{R}^m$ is in im$(T)$.
+
+Proof: $A_{m\times n}\vec{0}_n=\vec{0}_{m\times 1}\Rightarrow T(\vec{0}_n)=\vec{0}_m$
+\item Let $\vec{v}_1,\vec{v}_2\in\text{im}(T)$. Then $\vec{v}_1+\vec{v}_2\in\text{im}(T)$.
+
+Proof: Since $\vec{v}_1,\vec{v}_2\in\text{imm}(T)$, then $\exists \vec{w}_1,\vec{w}_2\in\mathbb{R}^n$ such that $T(\vec{w}_1)=\vec{v}_1,T(\vec{w}_2)=\vec{v}_2$. By the linearity of $T$, we have $T(\vec{w}+\vec{v})=T(\vec{w})+T(\vec{v})$. Combining, we have $T(\vec{w}_1+\vec{w}_2)=T(\vec{w}_1)+T(\vec{w}_2)=\vec{v}_1+\vec{v}_2$. Since $T$ has a codomain that is the image space, $T(\vec{w}_1+\vec{w}_2)$ is in the image space. Since $T(\vec{w}_1+\vec{w}_2)=\vec{v}_1+\vec{v}_2$, the sum $\vec{v}_1+\vec{v}_2$ is in the image space.
+\item Let $\vec{v}\in \text{im}(T), k\in\mathbb{R}$. Then $kv\in\text{im}(T)$.
+
+Proof: $\vec{v}\in\text{im}(T)\rightarrow\exists\vec{w},T(\vec{w})=\vec{v}$. Introducing our constant $k$, we have $kT(\vec{w})=k\vec{v}$. By linearity, we have $kT(\vec{w})=T(k\vec{w})$. Hence, $T(k\vec{w})=k\vec{v}$, and $k\vec{v}$ is in the image.\\
+\end{enumerate}
+
+Summary:
+\begin{enumerate}
+\item $\vec{0}_m\in\mathbb{R}^m$ is in $\text{imm}(T)$.
+\item The image is closed under addition.
+\item The image is closed under scalar multiplication.\\
+\end{enumerate}
+
+$\,\,\,$ Now lets examine kernels. Kernels are subsets of the domain that satisfy the following for a given transformation $T:S\rightarrow D,T(\vec{x})=A\vec{x}$: $A(\vec{x}\in S)=\vec{0}\in D$. So, ker$(T)$ is the null space of $A$.
+
+\newpage
+\begin{center}
+Document 13: Kernels and Images
+\end{center}
+
+\setlength{\leftskip}{0in}
+$\,\,\,$ The following equivalent properties are useful to know for kernels and images. For each property consider $T:\mathbb{R}^n\rightarrow\mathbb{R}^m,\text{ker}(T)=\text{ker}(A)=\{x:A\vec{x}=0\},A\vec{x}=y,\text{im}(T)=\text{im}(A)=\text{span}(\text{columns space of }A)$.
+\begin{enumerate}
+\item A is invertible
+\item $A\vec{x}=\vec{b}$ has a unique solution: $\vec{x}=A^{-1}\vec{b}$.
+\item rref$(A)=I_n$
+\item rank$(A)=n$ has no redundancy
+\item ker$(A)=\{\vec{0}\}$
+\item im$(A)=\mathbb{R}^n$
+\end{enumerate}
+
+$\,\,\,$ For a matrix $A$, compute the reduced row echelon form, then find the columns that have two leading ones. If these columns are $A_1,A_3$ for instance, we have found the image im$(A)=\text{span}\{A_1,A_3\}$. Solving $A\vec{x}=\vec{0}$ and placing it in closed form might look like $\vec{x}=sM_1+tM_2$. Here, we have found the kernel span$\{M_1,M_2\}$.
+
+$\,\,\,$ Now, lets introduce the concept of subspace.
+
+Definition: Subspaces of $\mathbb{R}^n$. Let $w\subset \mathbb{R}^n$. W is a linear subspace of $\mathbb{R}^n$ if:
+\begin{enumerate}
+\item $\vec{0}\in\mathbb{R}^n$ is in $W$.
+\item $W$ is closed under addition.
+\item $W$ is closed under scalar multiplication.
+\item given $T(\vec{x})=A\vec{x},T:\mathbb{R}^n\rightarrow\mathbb{R}^m$, ker$(T)=\text{ker}(A)$ is a subspace of $\mathbb{R}^n$.
+\item given $T(\vec{x})=A\vec{x},T:\mathbb{R}^n\rightarrow\mathbb{R}^m$, im$(T)=\text{im}(A)$ is a subspace of $\mathbb{R}^m$.
+\end{enumerate}
+
+
+\begin{center}
+SUMMARY TABLE: Subspace
+\end{center}
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Dimention & $W\subset\mathbb{R}^2$ & $W\subset\mathbb{R}^3$\\\hline
+3 & NA & $\mathbb{R}^3$\\
+2 & $\mathbb{R}^2$ & plane through $\vec{0}$\\
+1 & line through $\vec{0}$ & line through $\vec{0}$\\
+0 & $\{\vec{0}\}$ & $\{\vec{0}\}$\\\hline
+\end{tabular}
+\end{center}
+
+$\,\,\,$ We also have the concept of redundancy and linear independence. Consider the following definition.
+
+Definition: linear independence. Let $S=\vec{v_1},\cdots,\vec{v_n}\in\mathbb{R}^n$.
+\begin{enumerate}
+\item $\vec{v_i}\in S$ is redundant if $\vec{v_i}$ is a linear combination of vectors in S.
+\item S is a linearly independent set if none of the vectors in S is redundant.
+\end{enumerate}
+
+$\,\,\,$ Finally, we have the concept of bases. In 2D space, we have $\begin{bmatrix}1\\0\end{bmatrix},\begin{bmatrix}0\\1\end{bmatrix}$, which can be used to create every other vector. The set that contains them would be the basis.
+
+Definition: Let $s=\{\vec{v_1},\cdots,\vec{v_n}\}$ such that each element $v_i$ is linearly independent of the others and $v_i\in V\subset\mathbb{R}^n$. We say $s$ forms a basis of $V$ if and only if $\forall \vec{v}\in V,\exists \vec{v_1},\cdots,\vec{v_n},\exists c_1,\cdots,c_n,\vec{v}=c_1\vec{v_1}+\cdots +c_n\vec{v_n}$. In other words, if each vector in $V$ can be written in coordinates using elements in vector $s$, and each element of vector $s$ is linearly independent, then $s$ is a basis.
+
+$\,\,\,$A basis must be optimal, there can be no redundancies in a set for it to be considered a basis. Now, lets define a dimension.
+
+$\,\,\,$Let $\{v_1,\cdots,v_p\}\in V\subset\mathbb{R}^n$, and $\{w_1,\cdots,w_q\}\in V\subset\mathbb{R}^n$. If $v_i$'s are linearly independent and span$\{w_1,\cdots,w_q\}=V$, then $p\leq q$. Given two basis sets where both sets are linearly independent and span $V$, the number of elements in each basis are less than or equal to each other (i.e. $p\leq q\land q\leq p$), therefore they are equal in number. Thus, all bases of $V$ must have the same number of elements.\\
+
+Definition Dimension: The number of vectors in a basis of $V$ is the dimension, (i.e. Let $\mathbb{B}$ be the basis of $V$. $[[\mathbb{B}]]=\text{dim}(V)$).
+
+\newpage
+\begin{center}
+Document 14: Equivalent Properties and Trace
+\end{center}
+
+$\,\,\,$Some additional properties which are equivalent will be noted, and Trace will be described.
+
+$\,\,\,$Trace is a function that sums all diagonal elements. Lets prove the trace of a 3x3 matrix is a linear transformation. We define the transformation $T:\mathbb{R}^{3\times 3}\rightarrow\mathbb{R}$.
+
+$$\text{Let }a_{11},a_{12},\cdots,a_{33} \text{ and } b_{11},b_{12},\cdots,b_{11}\text{ be arbitrary scalars.}$$
+
+$$\text{Set }A=\begin{bmatrix}a_{11} & a_{12} & a_{13}\\a_{21} & a_{22} & a_{23}\\a_{31} & a_{32} & a_{33}\end{bmatrix}, B=\begin{bmatrix}b_{11} & b_{12} & b_{13}\\b_{21} & b_{22} & b_{23}\\b_{31} & b_{32} & b_{33}\end{bmatrix}.$$\\
+
+$\,\,\,$We begin by proving $T(\vec{w}+\vec{v})=T(\vec{w})+T(\vec{v})$. Since $A,B$ are arbitrary, lets apply the transformation to $A,B$.
+$$T(A+B)=T\left(\begin{bmatrix}a_{11}+b_{11} & a_{12}+b_{12} & a_{13}+b_{13}\\a_{21}+b_{21} & a_{22}+b_{22} & a_{23}+b_{23}\\a_{31}+b_{31} & a_{32}+b_{32} & a_{33}+b_{33}\end{bmatrix}\right)=(a_{11}+b_{11})+(a_{22}+b_{22})+(a_{33}+b_{33})$$
+$$\text{Now, }T(A+B)=(a_{11}+a_{22}+a_{33})+(b_{11}+b_{22}+b_{33})=T(A)+T(B)$$
+
+$\,\,\,$Next we prove $T(k\vec{v})=kT(\vec{v})$. Since $A$ is arbitrary, lets apply the transformation to $A$.
+
+$$T(kA)=T\left(\begin{bmatrix}ka_{11} & ka_{12} & ka_{13}\\ka_{21} & ka_{22} & ka_{23}\\ka_{31} & ka_{32} & ka_{33}\end{bmatrix}\right)=ka_{11}+ka_{22}+ka_{33}$$
+$$\text{Now, }T(kA)=k(a_{11}+a_{22}+a_{33})=kT(A)$$
+
+$\,\,\,$Hence, since $T(\vec{v}+\vec{w})=T(\vec{v})+T(\vec{w})\land T(k\vec{v})=kT(\vec{v})$, we have $T$ is a linear transformation.\\
+
+$\,\,\,$On the fundamental theorem of linear algebra, recall for a matrix $A_{m\times n}$, $\text{dim}(\text{ker}(A))+\text{dim}(\text{im}(A))=n$. Now, $\text{dim}(\text{ker}(A))$ is the number of redundant column vectors, so $\text{dim}(\text{ker}(A))=\text{nullity}(A)$. Additionally, $\text{dim}(\text{im}(A))$ is the number of non redundant column vectors, so $\text{dim}(\text{im}(A))=\text{rank}(A)$.
+
+\newpage
+Equivalent Properties (With Additions):
+\begin{enumerate}
+\item A is invertible
+\item $A\vec{x}=\vec{b}$ has a unique solution: $\vec{x}=A^{-1}\vec{b}$.
+\item rref$(A)=I_n$
+\item rank$(A)=n$ has no redundancy
+\item ker$(A)=\{\vec{0}\}$
+\item im$(A)=\mathbb{R}^n$
+\item Columns of A form a basis for $\mathbb{R}^n$
+\item Columns of A span $\mathbb{R}^n$
+\item Columns of A are linearly independent
+\end{enumerate}
+
+\newpage
+\begin{center}
+Document 15: Bases
+\end{center}
+
+\setlength{\leftskip}{0 in}
+$\,\,\,$ Given a base $B=\lbrace \vec{v_1},\vec{v_2}\rbrace$, let $\vec{x}=c_1\vec{v_1}+c_2\vec{v_2}$. The span on the right are the coordinates of $\vec{x}$.\\
+
+Definition: Set $\vec{x}=c_1[\vec{x_1}]_\mathbb{B}+c_2[\vec{x_2}]_\mathbb{B}$ where $\mathbb{B}$ is the basis for the vector space, and $\vec{x}$ is the vector whose coordinates we are interested in. The coordinates are $c_1,c_2$. The solution set is the set that contains both these values.\\
+
+$\,\,\,$ We also have a $B$-matrix $B=\begin{bmatrix}[T(\vec{v_1})]_\mathbb{B} & [T(\vec{v_n})]_\mathbb{B}\end{bmatrix}$. B is like our standard matrix, but it lets us perform a transformation from $[\vec{x}]_\mathbb{B}$ to $[T(\vec{x})]_\mathbb{B}$, as opposed to from $\vec{x}$ to $T(\vec{x})$. This lets us use different coordinate systems with a different basis, such as a rotated coordinate system, very easily. If our x-axis gets replaced with a line rotated $45\deg$, and our y-axis remains orthogonal, we can transform $x$ within this axis system by transforming it to $[\vec{x}]_\mathbb{B}$ and using $B$.
+
+\begin{center}
+$\begin{matrix}
+\vec{x} & A:\rightarrow & T(\vec{x})\\
+S: \uparrow, S^{-1}: \downarrow & & S: \uparrow, S^{-1}: \downarrow\\
+[\vec{x}]_\mathbb{B} & B: \rightarrow & [T(\vec{x})]_\mathbb{B}
+\end{matrix}$\\
+\end{center}
+
+$\,\,\,$ Further, $T(\vec{x})=A\vec{x}=AS[\vec{x}]_\mathbb{B}=S([T(\vec{x})]_\mathbb{B})=SB[\vec{x}]_\mathbb{B}$. Interesting to note, the simplest form of a matrix can be found using a different basis, and it is called the Jordan Canonical Form.\\
+
+Definition Similarity: Two matrices $A,B$ are similar if there exists a matrix $S$ such that $AS=SB$. Two equations that allow us to find similar matrices are $A=SBS^{-1}$ and $B=S^{-1}AS$.\\
+
+$\,\,\,$ Considering harmonic functions, for 2nd Order Ordinary Differential Equations, $\frac{d^2x}{dt^2}+x=0$. Claim, Any other solution of the ODE can be written as $x_g(t)=c_1\sin(t)+c_2\cos(t)$
+
+\newpage
+\begin{center}
+Document 16: Linear Spaces\\
+\end{center}
+
+\setlength{\leftskip}{0 in}
+$\,\,\,$ In this section, we are investigating Linear Spaces. First, it is important to define what a linear space is.\\
+
+Definition: A linear space $V$ is a set that satisfies the following:
+
+$\,\,\,$ Let $f,g,h\in V,c,k\in\mathbb{R}$ be arbitrary.
+\begin{enumerate}
+\item $(f+g)+h=f+(g+h)$
+\item $f+g=g+f$
+\item $\exists 0\in V$ such that $f+0=f$
+\item $k(f+g)=kf+kg$
+\item $(c+k)f=cf+kf$
+\item $c(kf)=(ck)f$
+\item $1*f=f$
+\end{enumerate}
+
+$\,\,\,$ Revisiting a previous definition, let $V$ be a vector space. A subset $W\subset V$ is a subspace of $V$ if 1) $0\in W$, 2) $W$ is closed under addition, 3) $W$ is closed under scalar multiplication. Lets add a few more properties.\\
+
+Definition: Let $V$ be a vector subspace $\lbrace f_1,\cdots,f_n\rbrace\in V$.
+\begin{enumerate}
+\item span$\lbrace f_1,\cdots,f_n\rbrace=V$ if $\forall f\in V,f=c_1,f_1+\cdots+c_nf_n$.
+\item $\lbrace f_1,\cdots,f_n\rbrace=V$ are linearly independent $\Leftrightarrow (c_1f_1+\cdots+c_nf_n=0\Leftrightarrow c_1=\cdots=c_n=0$.
+\item $\mathbb{B}=\lbrace f_1,\cdots,f_n\rbrace=V$ is a basis for $V$ if parts 1) and 2) are satisfied and the right half of the equation $f=\lbrace f_1,\cdots,f_n\rbrace=V$ are teh coordinates of $f$ with respect to $\mathbb{B}$. i.e. $[f]_\mathbb{B}=\begin{bmatrix}c_1\\\vdots\\c_n\end{bmatrix}$.
+\item $T(f)=[f]_\mathbb{B},T:V\rightarrow\mathbb{R}^n$ is the B-coordinate Transformation.
+\item The $\mathbb{B}$ coordinate transformation is invertible and $T^{-1}(\begin{bmatrix}c_1\\\vdots\\c_n\end{bmatrix})=f_1+\cdots+f_n=f$
+\end{enumerate}
+
+$\,\,\,$ Note, the dimension of a subspace is equal to the number of elements (the cardinality) of the basis. An infinite basis implies an infinite dimension. Now lets revisit linear transformations with this new knowledge in mind.\\
+
+Definition Let $V,W$ be arbitrary subspaces.
+\begin{enumerate}
+\item $T:V\rightarrow W$ is linear if $T(f+g)=T(f)+T(w)\land T(kf)=kT(f)$.
+\item im$(T)=\lbrace T(f):\forall f\in V\rbrace$.
+\item ker$(T)=\lbrace f\in V:T(f)=0\rbrace$.
+\item im$(T)$ is a subspace of cod$(W)$ and ker$(T)$ is a subspace of dom$(V)$.
+\item im$(T)$ has finite dimensions $\Rightarrow \text{dim}(\text{im}(T))\equiv\text{rank}(T)$. And ker$(T)$ has finite dimensions $\Rightarrow \text{dim}(\text{ker}(T))\equiv\text{nullity}(T)$.
+\item If $V$ has finite dimensions, $\Rightarrow \text{dim}(V)=\text{dim}(\text{ker}(T))+\text{dim}(\text{im}(T))$.
+\end{enumerate}
+
+\newpage
+\begin{center}
+Document 17: Isomorphisms\\
+\end{center}
+
+\setlength{\leftskip}{0 in}
+$\,\,\,$ In this section, we are investigating Isomorphisms. Previously, we had linearity, where we could perform transformations back and forth between two sets, isomorphisms are similar.\\
+
+Definition: Isomorphisms are invertible linear transofmrations.\\
+
+$\,\,\,$We say that $V\begin{matrix}\text{iso}\\\sim\end{matrix}W\Leftrightarrow \exists$ an isomorphism $T:V\rightarrow W$. We also know that any n-dimentional linear space $V$ is isomorphic to $\mathbb{R}^n$.\\
+
+Definition: Similarity between $A,B$ exists if $\exists S,B=S^{-1}AS$.\\
+
+Properties of Isomorphism:
+\begin{enumerate}
+\item $T:V\rightarrow W$ is an isomorphism $\Leftrightarrow$ ker$(T)=\lbrace 0\rbrace \land \text{im}(T)=W$
+\item Let $V,W$ be finite dimensional. $V\sim W\rightarrow \text{dim}(V)=\text{dim}(W)$.
+\item Let $T:V\rightarrow W$ be a linear transformation where Kernel$(T)=\lbrace 0 \rbrace$. dim$(V)=\text{dim}(W)\rightarrow T$ is an isomorphism.\\
+\end{enumerate}
+
+$\,\,\,$Now, lets look at a matrix representation.
+
+\newpage
+\begin{center}
+Document 18: Change of Bases\\
+\end{center}
+
+\setlength{\leftskip}{0 in}
+$\,\,\,$ In this section, we are investigating changing the basis of a vector subspace. Consider the following example.
+
+\begin{center}
+Let $\mathbb{B}_1=\lbrace f_1,f_2,\cdots,f_n\rbrace,\mathbb{B}_2=\lbrace g_1,g_2,\cdots,g_n\rbrace$.
+
+$f=c_1f_1+c_2f_2+\cdots+c_nf_n$
+
+$[f]_{\mathbb{B}_1}=\begin{bmatrix}c_1\\c_2\\\vdots\\c_n\end{bmatrix}$.
+\end{center}
+
+$\,\,\,$Then, putting the coordinates into basis 2 yields:
+\begin{center}
+$[f]_{\mathbb{B}_2}=[c_1f_1+c_2f_2+\cdots+c_nf_n]_{\mathbb{B}_2}$.
+
+$[f]_{\mathbb{B}_2}=c_1[f_1]_{\mathbb{B}_2}+c_2[f_2]_{\mathbb{B}_2}+\cdots+c_n[f_n]_{\mathbb{B}_2}$.
+
+$[f]_{\mathbb{B}_2}=\begin{bmatrix}[f_1]_{\mathbb{B}_2} & [f_2]_{\mathbb{B}_2} & \cdots & [f_n]_{\mathbb{B}_2}\end{bmatrix}\begin{bmatrix}c_1\\c_2\\\vdots\\c_n\end{bmatrix}$
+$[f]_{\mathbb{B}_2}=\begin{bmatrix}[f_1]_{\mathbb{B}_2} & [f_2]_{\mathbb{B}_2} & \cdots & [f_n]_{\mathbb{B}_2}\end{bmatrix}[f]_{\mathbb{B}_1}$
+\end{center}
+
+$\,\,\,$We define the change of basis transformation in matrix form from $[f]_{\mathbb{B}_1}$ to $[f]_{\mathbb{B}_2}$ with $S=\begin{bmatrix}[f_1]_{\mathbb{B}_2} & [f_2]_{\mathbb{B}_2} & \cdots & [f_n]_{\mathbb{B}_2}\end{bmatrix}$.
+
+$\,\,\,$Let $D$ be an the standard matrix of a given a transformation $T:V\rightarrow V,T(f)=D(f)=f\prime$. Let $f\in V=\text{span}\lbrace e^x,e^{-x}\rbrace$. We want to find the standard matrix for the transformations in two different Bases. We know that $\mathbb{B}_2\lbrace e^x,e^{-x}\rbrace$ and $\mathbb{B}_1\lbrace e^x+e^{-x},e^x-e^{-x}\rbrace$.\\
+
+The steps to finding these matricies are always the same.
+\begin{enumerate}
+\item Apply the transformation to each of the bases elements.
+\item Rewrite each output in coordinates.
+\item Define column matrices in terms of the coefficients of the coordinates.
+\item The solution matrix is a block matrix made up of these column vectors in order.
+\end{enumerate}
+
+$\,\,\,$Lets return to our example with basis $\mathbb{B}_1$ and basis $\mathbb{B}_2$ for the transformation $T(f)=f\prime$.\\
+
+For basis one:
+
+$\left.\begin{matrix}T(e^x)=e^x=1(e^x)+0(e^{-x})\vdash \begin{bmatrix}1\\0\end{bmatrix}\\T(e^{-x})=-e^{-x}=0(e^x)+(-1)(e^{-x})\vdash \begin{bmatrix}0\\-1\end{bmatrix}\end{matrix}\right\rbrace$
+$\therefore A=\begin{bmatrix}1 & 0\\0 & -1\end{bmatrix}$\\
+
+For basis two:
+
+$\left.\begin{matrix}T(e^x+e^{-x})=e^x-e^{-x}=0(e^x+e^{-x})+1(e^x-e^{-x})\vdash \begin{bmatrix}0\\1\end{bmatrix}\\T(e^x-e^{-x})=e^x+e^{-x}=1(e^x+e^{-x})+0(e^x-e^{-x})\vdash \begin{bmatrix}1\\0\end{bmatrix}\end{matrix}\right\rbrace$
+$\therefore B=\begin{bmatrix}0 & 1\\1 & 0\end{bmatrix}$
+
+\newpage
+\begin{center}
+Document 19: Blank
+\end{center}
+
+\setlength{\leftskip}{0 in}
+$\,\,\,$This is filler.
+\end{document}

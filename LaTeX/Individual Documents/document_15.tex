@@ -1,0 +1,30 @@
+\documentclass[11 pt]{article}
+\usepackage{amsfonts,amssymb,amsmath}
+\parindent 0px
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+Document 15: Bases
+\end{center}
+
+\setlength{\leftskip}{0 in}
+$\,\,\,$ Given a base $B=\lbrace \vec{v_1},\vec{v_2}\rbrace$, let $\vec{x}=c_1\vec{v_1}+c_2\vec{v_2}$. The span on the right are the coordinates of $\vec{x}$.\\
+
+Definition: Set $\vec{x}=c_1[\vec{x_1}]_\mathbb{B}+c_2[\vec{x_2}]_\mathbb{B}$ where $\mathbb{B}$ is the basis for the vector space, and $\vec{x}$ is the vector whose coordinates we are interested in. The coordinates are $c_1,c_2$. The solution set is the set that contains both these values.\\
+
+$\,\,\,$ We also have a $B$-matrix $B=\begin{bmatrix}[T(\vec{v_1})]_\mathbb{B} & [T(\vec{v_n})]_\mathbb{B}\end{bmatrix}$. B is like our standard matrix, but it lets us perform a transformation from $[\vec{x}]_\mathbb{B}$ to $[T(\vec{x})]_\mathbb{B}$, as opposed to from $\vec{x}$ to $T(\vec{x})$. This lets us use different coordinate systems with a different basis, such as a rotated coordinate system, very easily. If our x-axis gets replaced with a line rotated $45\deg$, and our y-axis remains orthogonal, we can transform $x$ within this axis system by transforming it to $[\vec{x}]_\mathbb{B}$ and using $B$.
+
+\begin{center}
+$\begin{matrix}
+\vec{x} & A:\rightarrow & T(\vec{x})\\
+S: \uparrow, S^{-1}: \downarrow & & S: \uparrow, S^{-1}: \downarrow\\
+[\vec{x}]_\mathbb{B} & B: \rightarrow & [T(\vec{x})]_\mathbb{B}
+\end{matrix}$\\
+\end{center}
+
+$\,\,\,$ Further, $T(\vec{x})=A\vec{x}=AS[\vec{x}]_\mathbb{B}=S([T(\vec{x})]_\mathbb{B})=SB[\vec{x}]_\mathbb{B}$. Interesting to note, the simplest form of a matrix can be found using a different basis, and it is called the Jordan Canonical Form.\\
+
+Definition Similarity: Two matrices $A,B$ are similar if there exists a matrix $S$ such that $AS=SB$. Two equations that allow us to find similar matrices are $A=SBS^{-1}$ and $B=S^{-1}AS$.\\
+
+$\,\,\,$ Considering harmonic functions, for 2nd Order Ordinary Differential Equations, $\frac{d^2x}{dt^2}+x=0$. Claim, Any other solution of the ODE can be written as $x_g(t)=c_1\sin(t)+c_2\cos(t)$
+\end{document}

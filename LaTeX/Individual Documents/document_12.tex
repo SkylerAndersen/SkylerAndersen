@@ -1,0 +1,46 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts,amssymb,amsmath}
+\parindent 0px
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+Document 12: Subspaces of $\mathbb{R}^n$
+\end{center}
+
+\setlength{\leftskip}{0in}
+$\,\,\,$ Let $X$ be the domain of a function $f$, and $Y$ be the codomain. For arbitrary elements $x,y$, $y=f(x),x=f^{-1}(y)$. Given a transformation $T(\vec{x})=\begin{bmatrix}\cos(x)\\\sin(x)\end{bmatrix}$, the transformation is nonlinear, with a domain $\mathbb{R}^1$, and a codomain $\mathbb{R}^2$. The image is a unit circle. Lets try another example. Use the following definition of $A$ for the following example.
+
+$$A=\begin{bmatrix}
+1 & 1\\1 & 2\\1 & 3
+\end{bmatrix}$$
+
+$\,\,\,$ Define a transformation $T(\vec{x})=A\vec{x},T:\mathbb{R}^2\rightarrow\mathbb{R}^3$. $T\left(\begin{bmatrix}x_1\\x_2\end{bmatrix}\right)=A\vec{x}=x_1\begin{bmatrix}1\\1\\1\end{bmatrix}+x_2\begin{bmatrix}1\\2\\3\end{bmatrix}$. Since $\vec{x}$ is arbitrary, $x_1,x_2$ are arbitrary. We are summing all arbitrary combinations of these two vectors. The image this creates is a plane.
+
+$\,\,\,$The sum of some number of terms defined by an arbitrary scalar multiplied by a specific vector is defined as the span of the specific vectors. However, there is a more formal definition.\\
+
+Definition: Let $m,n\in\mathbb{R}$ be arbitrary. Let $c_1,c_2,\cdots,c_n\in\mathbb{R}$ be arbitrary. Let $\vec{v_1},\vec{v_2},\cdots,\vec{v_n}\in\mathbb{R}^m$ be arbitrary vector. We define the span of vectors $\vec{v_1}$ through $\vec{v_n}$ as $c_1\vec{v_1}+c_2\vec{v_2}+\cdots+c_n\vec{v_n}$ and write span$\lbrace\vec{v_1},\vec{v_2},\cdots,\vec{v_n}\rbrace$.\\
+
+$\,\,\,$ Lets examine some essential properties of images of linear transformations. Then, we will summarize these properties and introduce a corollary.\\
+
+Properties:
+\begin{enumerate}
+\item $\vec{0}_m\in\mathbb{R}^m$ is in im$(T)$.
+
+Proof: $A_{m\times n}\vec{0}_n=\vec{0}_{m\times 1}\Rightarrow T(\vec{0}_n)=\vec{0}_m$
+\item Let $\vec{v}_1,\vec{v}_2\in\text{im}(T)$. Then $\vec{v}_1+\vec{v}_2\in\text{im}(T)$.
+
+Proof: Since $\vec{v}_1,\vec{v}_2\in\text{imm}(T)$, then $\exists \vec{w}_1,\vec{w}_2\in\mathbb{R}^n$ such that $T(\vec{w}_1)=\vec{v}_1,T(\vec{w}_2)=\vec{v}_2$. By the linearity of $T$, we have $T(\vec{w}+\vec{v})=T(\vec{w})+T(\vec{v})$. Combining, we have $T(\vec{w}_1+\vec{w}_2)=T(\vec{w}_1)+T(\vec{w}_2)=\vec{v}_1+\vec{v}_2$. Since $T$ has a codomain that is the image space, $T(\vec{w}_1+\vec{w}_2)$ is in the image space. Since $T(\vec{w}_1+\vec{w}_2)=\vec{v}_1+\vec{v}_2$, the sum $\vec{v}_1+\vec{v}_2$ is in the image space.
+\item Let $\vec{v}\in \text{im}(T), k\in\mathbb{R}$. Then $kv\in\text{im}(T)$.
+
+Proof: $\vec{v}\in\text{im}(T)\rightarrow\exists\vec{w},T(\vec{w})=\vec{v}$. Introducing our constant $k$, we have $kT(\vec{w})=k\vec{v}$. By linearity, we have $kT(\vec{w})=T(k\vec{w})$. Hence, $T(k\vec{w})=k\vec{v}$, and $k\vec{v}$ is in the image.\\
+\end{enumerate}
+
+Summary:
+\begin{enumerate}
+\item $\vec{0}_m\in\mathbb{R}^m$ is in $\text{imm}(T)$.
+\item The image is closed under addition.
+\item The image is closed under scalar multiplication.\\
+\end{enumerate}
+
+$\,\,\,$ Now lets examine kernels. Kernels are subsets of the domain that satisfy the following for a given transformation $T:S\rightarrow D,T(\vec{x})=A\vec{x}$: $A(\vec{x}\in S)=\vec{0}\in D$. So, ker$(T)$ is the null space of $A$.
+\end{document}

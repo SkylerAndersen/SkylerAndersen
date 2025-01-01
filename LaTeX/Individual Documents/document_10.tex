@@ -1,0 +1,49 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts,amssymb,amsmath,float}
+\parindent 0px
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+Document 10: Multiplication of Block Matrices
+\end{center}
+
+\setlength{\leftskip}{0 in}
+$\,\,\,$ Sometimes when matrices get large, we can use block matrices to reduce the complexity of operations we must perform. A matrix can be divided into submatrices, and a the original matrix can now be expressed as a matrix of matrices. Consider the following:
+
+$$E=\begin{bmatrix}
+a & b & c\\d & e & f\\g & h & i
+\end{bmatrix}=\begin{bmatrix}
+\begin{bmatrix}
+a & b\\d & e
+\end{bmatrix} &
+\begin{bmatrix}
+c\\f
+\end{bmatrix}\\
+\begin{bmatrix}
+g & h
+\end{bmatrix} &
+\begin{bmatrix}
+i
+\end{bmatrix}
+\end{bmatrix}=\begin{bmatrix}
+A & B\\C & D
+\end{bmatrix}
+$$
+
+$\,\,\,$ When multiplying a block matrix, each submatrix is an element, and matrix multiplication can be performed as normal. Using the above example, we may demonstrate how $EE$ is computed.
+
+$$
+EE=\begin{bmatrix}
+A & B\\C & D
+\end{bmatrix}\begin{bmatrix}
+A & B\\C & D
+\end{bmatrix}=
+\begin{bmatrix}
+AA+BC & AB+BD\\AC+DC & CB+DD
+\end{bmatrix}
+$$
+
+$\,\,\,$ Since $A,B,C,\text{ and }D$ are all matrices, their products and sums follow all of the rules of standard matrix multiplication and addition. Next, lets examine how the span function is used.
+
+$\,\,\,$ Let $L=\text{span}\left\lbrace\begin{bmatrix}2\\-2\\-1\end{bmatrix}\right\rbrace$, $\vec{x}=\begin{bmatrix}2\\5\\1\end{bmatrix}$. To find the reflection of $\vec{x}$ about $L$, we use: ref$_L(\vec{x})=2(\vec{x}\cdot\vec{u})\vec{u}-\vec{x}$. Define $\vec{v}$ such that $L=\text{span}\left\lbrace\vec{v}\right\rbrace$. Now, find $\vec{u}$; this vector is a unit vector pointing in the same direction as $\vec{v}$. Hence, $\vec{u}=\frac{\vec{v}}{||\vec{v}||}$. Recall $||\vec{v}||=\sqrt{v_1^2+v_2^2+v_3^2}$, since $\vec{v}$ is in 3D space, and must have 3 elements.
+\end{document}

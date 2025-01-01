@@ -1,0 +1,125 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts,amssymb,amsmath,float}
+\pagestyle{empty}
+\parindent 0px
+\begin{document}
+\begin{center}
+Document 4: Data Encoding
+\end{center}
+
+\setlength{\leftskip}{0 in}
+$\,\,\,$ Briefly, lets review matrix multiplication. Define the following matrices $A$ and $B$.
+$$A=\begin{bmatrix}
+1 & 2 & 3\\4 & 5 & 6
+\end{bmatrix},
+B=\left[\begin{matrix}
+-1 & -4\\-2 & 5\\-3 & 6
+\end{matrix}\right]$$
+
+Multiplying components, we can expand the equation. 
+$$AB=\begin{bmatrix}
+a & b\\ c & d
+\end{bmatrix},a=\begin{bmatrix}
+1 & 2 & 3
+\end{bmatrix}\begin{bmatrix}
+-1\\-2\\-3
+\end{bmatrix},b=\begin{bmatrix}
+1 & 2 & 3
+\end{bmatrix}
+\begin{bmatrix}
+-4\\5\\6
+\end{bmatrix},
+c=
+\begin{bmatrix}
+4 & 5 & 6
+\end{bmatrix}
+\begin{bmatrix}
+-1\\-2\\-3
+\end{bmatrix},
+$$
+$$d=\begin{bmatrix}
+4 & 5 & 6
+\end{bmatrix}
+\begin{bmatrix}
+-4\\5\\6
+\end{bmatrix}
+$$
+
+Going left to right in the first matrix, and top to bottom in the right matrix, we multiply elements of the matrix, and sum the products as such.
+
+$$a=1(-1)+2(-2)+3(-3),b=1(-4)+2(5)+3(6),c=4(-1)+5(-2)+6(-3),d=4(-4)+5(5)+6(6)$$
+
+Hence:
+
+$$a=-14,b=24,c=-32,d=45\Rightarrow AB=\begin{bmatrix}
+-14 & 24\\-32 & 45
+\end{bmatrix}$$
+
+$\,\,\,$ In 1D, given an equation $ax=b$, we have $x=\frac{b}{a}$ or $x=a^{-1}b$. In 2D, with matrices, given an equation $A_{2\text{x}2}x_{2\text{x}1}=b_{2\text{x}1}$, we cannot have $x=\frac{b}{A}$ because there is no division of matrices. However, we can take the inverse of a matrix and have $x=a^{-1}b$. To get an inverse of a matrix, we multiply the matrix by the reciprocal of its determinant.
+
+$\,\,\,$ Given the following matrix, we have determinant $D=1*4-2*3=-2$.
+$$A=\begin{bmatrix}
+1 & 2\\3 & 4
+\end{bmatrix}$$
+
+$\,\,\,$ Matrices can be used as complicated functions with multiple variables. We can input systems of equations, multiply by the transformation matrix, and get an new matrix as output. The input is transformed from the decoded space to the encoded space. If you have a system of equations in x, then define it in y, we can call the matrix corresponding with x $A$, and the matrix corresponding with y $A^{-1}$.
+
+Given the system$\left\lbrace\begin{matrix}
+x_1+3x_2=y_1\\2x_1+5x_2=y_2
+\end{matrix}\right.$, we have the corresponding matrix. To solve the system, we place it into reduced row echelon form.
+$$A=\left[\left.\begin{matrix}
+1 & 3\\2 & 5
+\end{matrix}\right|\begin{matrix}
+y_1\\y_2
+\end{matrix}\right]=
+\left[\left.\begin{matrix}
+1 & 0\\0 & 1
+\end{matrix}\right|\begin{matrix}
+3y_2-5y_1\\-y_2+2y_1
+\end{matrix}\right]$$
+
+$\,\,\,$ The reduced row echelon form of the above equation yields the following system, which can be represented using matrices involving the input set containing $x_1,x_2$ and the solution set involving $y_1,y_2$.
+
+$$\text{system}=
+\left\lbrace\begin{matrix}
+x_1=3y_2-5y_1\\ x_2=-y_2+2y_1
+\end{matrix}\right. ,\,\Rightarrow \begin{bmatrix}
+x_1\\x_2
+\end{bmatrix}
+=\begin{bmatrix}
+-5 & 3\\ 2 & -1
+\end{bmatrix}
+\begin{bmatrix}
+y_1\\y_2
+\end{bmatrix}
+$$
+
+$\,\,\,$ The second matrix performs a transformation from $y$ to $x$, where the matrix $A$ performed an transformation from $x$ to $y$. These transformations are exactly opposite, and hence we call this matrix $A^{-1}$.
+
+$\,\,\,$ We can apply linear transformations in matrices. Matrices are not commutative, so the order of multiplication is important, just as it is for composition of functions. Given matrices to multiply $A,B,$ and $X$, we define $A*B*X$ as equal to $A*(B*X)$. Imagining the matrices are functions, $X$ goes into $B$ goes into $A$ to produce the output $A*B*X$.
+
+$\,\,\,$ Definition: A function $T:\mathbb{R}^n\rightarrow\mathbb{R}^m$ is a linear transformation if there is an $m\text{x}n$ matrix $A$ such that $$T(\vec{x})=A\vec{x},\forall \vec{x}\in\mathbb{R}^n$$. 
+
+$\,\,\,$ We say $T$ is acting on vector $\vec{x}$.
+
+$\,\,\,$ There are many other transformations that can be represented by matrices. Given a plane defined by some values $x_1,x_2$, we have a matrix representation that we can scale and shift to yield a new transformed plane in our solution space. For example, lets define a plane, linearly scale it down by $\frac{1}{2}$, and shift it left by $\frac{1}{2}$.
+$$\begin{bmatrix}
+\frac{1}{2} & 0\\ 0 & \frac{1}{2}
+\end{bmatrix}
+\begin{bmatrix}
+x_1\\x_2
+\end{bmatrix}+\begin{bmatrix}
+\frac{1}{2}\\ \frac{1}{2}
+\end{bmatrix}
+=\begin{bmatrix}
+y_1\\y_2
+\end{bmatrix}
+$$
+
+$\,\,\,$ Beyond scaling and rotating, we can also perform rotations. Let $T$ be a transformation matrix for a rotation by $90^{\circ}$ of the $xy$-plane. $T\equiv R_{90^\circ}$ $$T=\begin{bmatrix}
+0 & -1\\1 & 0
+\end{bmatrix}=\begin{bmatrix}
+\cos(\theta) & -\sin(\theta)\\ \sin(\theta) & \cos(\theta)
+\end{bmatrix}$$
+
+\end{document}

@@ -1,0 +1,67 @@
+\documentclass[11 pt]{article}
+\usepackage{amsfonts,amssymb,amsmath}
+\parindent 0px
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+Document 13: Kernels and Images
+\end{center}
+
+\setlength{\leftskip}{0in}
+$\,\,\,$ The following equivalent properties are useful to know for kernels and images. For each property consider $T:\mathbb{R}^n\rightarrow\mathbb{R}^m,\text{ker}(T)=\text{ker}(A)=\{x:A\vec{x}=0\},A\vec{x}=y,\text{im}(T)=\text{im}(A)=\text{span}(\text{columns space of }A)$.
+\begin{enumerate}
+\item A is invertible
+\item $A\vec{x}=\vec{b}$ has a unique solution: $\vec{x}=A^{-1}\vec{b}$.
+\item rref$(A)=I_n$
+\item rank$(A)=n$ has no redundancy
+\item ker$(A)=\{\vec{0}\}$
+\item im$(A)=\mathbb{R}^n$
+\end{enumerate}
+
+$\,\,\,$ For a matrix $A$, compute the reduced row echelon form, then find the columns that have two leading ones. If these columns are $A_1,A_3$ for instance, we have found the image im$(A)=\text{span}\{A_1,A_3\}$. Solving $A\vec{x}=\vec{0}$ and placing it in closed form might look like $\vec{x}=sM_1+tM_2$. Here, we have found the kernel span$\{M_1,M_2\}$.
+
+$\,\,\,$ Now, lets introduce the concept of subspace.
+
+Definition: Subspaces of $\mathbb{R}^n$. Let $w\subset \mathbb{R}^n$. W is a linear subspace of $\mathbb{R}^n$ if:
+\begin{enumerate}
+\item $\vec{0}\in\mathbb{R}^n$ is in $W$.
+\item $W$ is closed under addition.
+\item $W$ is closed under scalar multiplication.
+\item given $T(\vec{x})=A\vec{x},T:\mathbb{R}^n\rightarrow\mathbb{R}^m$, ker$(T)=\text{ker}(A)$ is a subspace of $\mathbb{R}^n$.
+\item given $T(\vec{x})=A\vec{x},T:\mathbb{R}^n\rightarrow\mathbb{R}^m$, im$(T)=\text{im}(A)$ is a subspace of $\mathbb{R}^m$.
+\end{enumerate}
+
+
+\begin{center}
+SUMMARY TABLE: Subspace
+\end{center}
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Dimention & $W\subset\mathbb{R}^2$ & $W\subset\mathbb{R}^3$\\\hline
+3 & NA & $\mathbb{R}^3$\\
+2 & $\mathbb{R}^2$ & plane through $\vec{0}$\\
+1 & line through $\vec{0}$ & line through $\vec{0}$\\
+0 & $\{\vec{0}\}$ & $\{\vec{0}\}$\\\hline
+\end{tabular}
+\end{center}
+
+$\,\,\,$ We also have the concept of redundancy and linear independence. Consider the following definition.
+
+Definition: linear independence. Let $S=\vec{v_1},\cdots,\vec{v_n}\in\mathbb{R}^n$.
+\begin{enumerate}
+\item $\vec{v_i}\in S$ is redundant if $\vec{v_i}$ is a linear combination of vectors in S.
+\item S is a linearly independent set if none of the vectors in S is redundant.
+\end{enumerate}
+
+$\,\,\,$ Finally, we have the concept of bases. In 2D space, we have $\begin{bmatrix}1\\0\end{bmatrix},\begin{bmatrix}0\\1\end{bmatrix}$, which can be used to create every other vector. The set that contains them would be the basis.
+
+Definition: Let $s=\{\vec{v_1},\cdots,\vec{v_n}\}$ such that each element $v_i$ is linearly independent of the others and $v_i\in V\subset\mathbb{R}^n$. We say $s$ forms a basis of $V$ if and only if $\forall \vec{v}\in V,\exists \vec{v_1},\cdots,\vec{v_n},\exists c_1,\cdots,c_n,\vec{v}=c_1\vec{v_1}+\cdots +c_n\vec{v_n}$. In other words, if each vector in $V$ can be written in coordinates using elements in vector $s$, and each element of vector $s$ is linearly independent, then $s$ is a basis.
+
+$\,\,\,$A basis must be optimal, there can be no redundancies in a set for it to be considered a basis. Now, lets define a dimension.
+
+$\,\,\,$Let $\{v_1,\cdots,v_p\}\in V\subset\mathbb{R}^n$, and $\{w_1,\cdots,w_q\}\in V\subset\mathbb{R}^n$. If $v_i$'s are linearly independent and span$\{w_1,\cdots,w_q\}=V$, then $p\leq q$. Given two basis sets where both sets are linearly independent and span $V$, the number of elements in each basis are less than or equal to each other (i.e. $p\leq q\land q\leq p$), therefore they are equal in number. Thus, all bases of $V$ must have the same number of elements.\\
+
+Definition Dimension: The number of vectors in a basis of $V$ is the dimension, (i.e. Let $\mathbb{B}$ be the basis of $V$. $[[\mathbb{B}]]=\text{dim}(V)$).
+\end{document}

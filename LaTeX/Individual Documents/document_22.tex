@@ -1,0 +1,20 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts,amssymb,amsmath}
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+Document 22: Eigenvalues and Eigenvectors
+\end{center}
+
+\vspace{0.2cm}
+This section covers eigenvalues and eigenvectors, which will be important in further mathematics and useful for applications of linear algebra.\\
+
+\noindent
+Definition Eigenvectors/Eigenvalues: A nonzero vector $\vec{v}\in\mathbb{R}^n$ is an eigenvector of $A$ if $\exists\lambda\in\mathbb{R}, A\vec{v}=\lambda\vec{v}$. The Eigenvalue is $\lambda$.\\
+
+When finding Eigenvalues/Eigenvectors, we must find values such that $(A-\lambda I)\vec{v}=\vec{0}$. This is a homogeneous linear system. Recall $A\vec{x}=\vec{0}$ has either 1 or infinite solutions. The eigenvalues are produced with det$(A-\lambda I)=0$, and the eigenvectors are produced by substituting into $(A-\lambda I)\vec{v}=0$.
+
+For finding eigenvalues, we need to find the characteristic polynomial of the matrix $A$. We begin with $P_\lambda (A)=\text{det}(A-\lambda I)$. We will solve and get some values, lets say $\lambda_1,\lambda_2$. Then we will solve $(A-\lambda_1 I)\vec{v}=\vec{0}$. We can use an augmented matrix and compute the rref$(A)$ to solve this. This may have infinitely many solutions, for instance: $$\begin{bmatrix}\vec{v}_1\\\vec{v}_2\end{bmatrix}=s\begin{bmatrix}1\\2\end{bmatrix}$$
+
+This was a basic introduction to eigenvalues and eigenvectors. This should be informative, yet basic. Further exploration is necessary.
+\end{document}

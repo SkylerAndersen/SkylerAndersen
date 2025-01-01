@@ -1,0 +1,79 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts,amsmath,amssymb}
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+Document 24: Diagonalization and E-Values/Vectors
+\end{center}
+
+Diagonalization is a really useful skill to have, and getting there involves the Eigenvalues and Eigenvectors of a matrix. The steps to get there are as follows.
+\begin{center}\begin{minipage}[t]{0.7\textwidth}\begin{enumerate}
+\item Find characteristic polynomial
+\item Find the eigenvalues and eigenvectors
+\item Diagonalize A\\
+\end{enumerate}\end{minipage}\end{center}
+
+For step one, $P_A(\lambda)=\text{det}(A-\lambda I)$. Lets define a matrix $A$ for this example, and compute $A-\lambda I$.
+
+$$A=\begin{bmatrix}2 & 2 & 2\\2 & 2 & 2\\2 & 2 & 2\end{bmatrix},A-\lambda I=\begin{bmatrix}2-\lambda & 2 & 2\\2 & 2-\lambda & 2\\2 & 2 & 2-\lambda\end{bmatrix}$$
+
+Then, $P_A(\lambda)=(2-\lambda)\cdot\text{det}\left(\begin{bmatrix}2-\lambda & 2\\2 & 2-\lambda\end{bmatrix}\right)-2\cdot\text{det}\left(\begin{bmatrix}2 & 2\\2 & 2-\lambda\end{bmatrix}\right)+2\cdot\text{det}\left(\begin{bmatrix}2 & 2\\2-\lambda & 2\end{bmatrix}\right)=(2-\lambda)\cdot(\lambda^2-4\lambda)-2\cdot(-2\lambda)+2\cdot(2\lambda)=6\lambda^2-\lambda^3=-\lambda^2(\lambda-6)$.
+
+Then, for step two, we identify the eigenvalues from the characteristic polynomial: we have $\lambda_1=0,\lambda_2=6$. We must also compute the eigenvectors. To compute the eigenvectors, we must solve $(A-\lambda I)\vec{v}=\vec{0}$. First, lets compute $A-\lambda_1I\text{ and }A-\lambda_2I$.
+
+$$A-\lambda_1I=\begin{bmatrix}2 & 2 & 2\\2 & 2 & 2\\2 & 2 & 2\end{bmatrix},A-\lambda_2I=\begin{bmatrix}-4 & 2 & 2\\2 & -4 & 2\\2 & 2 & -4\end{bmatrix}$$
+
+Then, compute $(A-\lambda_1I)\vec{v}=\vec{0}$. Given that $\vec{v}$ has elements $v_1,v_2,v_3$, we have $v_1=-v_2-v_3,v_2=v_2,v_3=v_3$. Defining free parameters $s,t$ such that $s=v_2,t=v_3$, we can rewrite the closed form for the solution.
+
+$$\vec{v}=s\begin{bmatrix}
+-1\\
+1\\
+0
+\end{bmatrix}+t\begin{bmatrix}
+-1\\
+0\\
+1
+\end{bmatrix}$$
+
+Lets redefine $\vec{v}$ within the scope of a new equation to compute $(A-\lambda_2I)\vec{v}=\vec{0}$. Given that $\vec{v}$ has elements $v_1,v_2,v_3$, we have $v_1=v_3,v_2=v_3,v_3=v_3$. Lets define $s$, the free parameter with $s=v_3$. In closed form, we have the following.
+
+$$\vec{v}=s\begin{bmatrix}1\\1\\1\end{bmatrix}$$
+
+Now, we have the eigenvalues $\lambda_1=0,\lambda_2=6$. Drawing from the solutions above, define vectors $\vec{v}_1,\vec{v}_2,\vec{v}_3$, the eigenvectors of the matrix as follows:
+
+$$\vec{v}_1=\begin{bmatrix}-1\\1\\0\end{bmatrix},
+\vec{v}_2=\begin{bmatrix}-1\\0\\1\end{bmatrix},
+\vec{v}_3=\begin{bmatrix}1\\1\\1\end{bmatrix}$$
+
+For step three, diagonalizing the matrix, lets first ensure that the matrix is diagonalizable. From the characteristic polynomial, we find the algebraic multiplicities for $\lambda_1$ and $\lambda_2$, and from the dimentions of the kernels we found earlier, we get the geometric multiplicities of $\lambda_1$ and $\lambda_2$: a.m.1$=2$, g.m.1$=2$, a.m.2$=1$, g.m.2$=1$. Since both the algebraic and geometric multiplicities equal, the matrix is diagonalizable.
+
+The matrix $A$ will be similar to a matrix $D$ by a matrix $S$ defined below. This matrix $D$ is the diagonalization of the matrix $A$.
+
+$$S=\begin{bmatrix} & & \\\vec{v}_1 & \vec{v}_2 & \vec{v}_3\\ & & \end{bmatrix}=
+\begin{bmatrix}-1 & -1 & 1\\1 & 0 & 1\\0 & 1 & 1\end{bmatrix}$$
+
+Next, we compute the inverse of $S$ and use properties of similarity to find D. We will do this below:
+
+$$S^{-1}=\frac{1}{3}\begin{bmatrix}-1 & 2 & -1\\-1 & -1 & 2\\1 & 1 & 1\end{bmatrix}$$
+
+$$3S^{-1}A=\begin{bmatrix}-1 & 2 & -1\\-1 & -1 & 2\\1 & 1 & 1\end{bmatrix}\begin{bmatrix}2 & 2 & 2\\2 & 2 & 2\\2 & 2 & 2\end{bmatrix}=\begin{bmatrix}0 & 0 & 0\\0 & 0 & 0\\6 & 6 & 6\end{bmatrix}$$
+
+$$\therefore\,\, S^{-1}A=\begin{bmatrix}0 & 0 & 0\\0 & 0 & 0\\2 & 2 & 2\end{bmatrix}$$
+
+Finally, multiply by $S$ to and use properties of similarity to compute $D$.
+
+\newpage
+The matrix $D$ is:
+
+$$D=S^{-1}AS=\begin{bmatrix}0 & 0 & 0\\0 & 0 & 0\\0 & 0 & 6\end{bmatrix}$$
+
+These steps will always yield the matrix $D$, but the similarity of $A$ and $D$ is not part of finding $D$ as much as it is a beneficial property of $D$. The diagonalized matrix is a lot more simple and easier to work with, and is similar to $A$, and the similarity is why it is valuable, not just a part of the process of finding it. In fact, you don't need to use similarity properties at all to find $D$. Consider the following:
+
+$$D=\begin{bmatrix}
+\lambda_1 & 0 & 0\\
+0 & \lambda_2 & 0\\
+0 & 0 & \lambda_3
+\end{bmatrix}$$
+
+Shortcuts to finding $D$ are perfectly valid. Given we have $S=[\vec{v}_1,\vec{v}_2,\vec{v}_3]$, the matrix $D$ should be the above matrix where $\lambda_1$ is the eigenvalue that produced the eigenvector $\vec{v}_1$ and so on.
+\end{document}

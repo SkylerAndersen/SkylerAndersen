@@ -1,0 +1,62 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts,amsmath,amssymb,float}
+\pagestyle{empty}
+\parindent 0px
+\begin{document}
+\begin{center}
+Document 1: Linear Equations and General Systems
+\end{center}
+
+\setlength{\leftskip}{0.25 in}
+The general linear system looks like:
+
+$$a_{11}x_1+a_{12}x_{2}+\cdots+a_{1n}x_n=b_1$$
+\setlength{\leftskip}{1.3 in}
+$\vdots$
+$$a_{m1}x_1+a_{m2}x_{2}+\cdots+a_{mn}x_n=b_n$$
+
+\setlength{\leftskip}{0 in}
+
+$\,\,\,$ These would have $m$ equations with $n$ unknowns each. Any system of linear equations can have only three types of solutions: 0 solutions, 1 solution, or $\infty$ solutions.
+
+$\,\,\,$ For cases in $2D$, we visualize the solutions as overlapping for infinite solutions, parallel for no solution, and intersecting for a unique solution. In $3D$, three intersecting planes represent infinite solutions, no universal intersection point represents no solution, and one solution would be represented by planes all at 90 degrees, intersecting at one place (i.e. a plane in xy-space, one in yz-space, and one in xz-space).\\
+
+$\,\,\,$ Elementary Operations Theorem: This theorem provides a system for solving a general system of linear equations.
+
+\begin{enumerate}
+\item Interchange two equations: $E_i \leftrightarrow E_j$
+\item Multiplication by a scalar: $E_i \leftrightarrow sE_i$
+\item Addition of a constant multiple of one equation to another: $E_i \leftrightarrow E_i + kE_j$
+\end{enumerate}
+
+$\,\,\,$ This theorem gives way to early concepts such as solving a linear system of equations by elimination. For more generalized algorithmic solutions, we use matrices. An example of a system of equations and its matrix representations is shown below.
+
+$$\left.
+\begin{matrix}
+x_2+x_3=4\\
+x_1-x_2+2x_3=1\\
+2x_1+x_2-x_3=6
+\end{matrix}
+\right|
+A=
+\begin{bmatrix}
+0 & 1 & 1\\
+1 & -1 & 2\\
+2 & 1 & -1
+\end{bmatrix}
+,
+X=
+\begin{bmatrix}
+x_1\\
+x_2\\
+x_3
+\end{bmatrix}
+,
+b=
+\begin{bmatrix}
+4\\
+1\\
+6
+\end{bmatrix}
+$$
+\end{document}

@@ -1,0 +1,56 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts,amssymb,amsmath,float}
+\parindent 0px
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+Document 6: Projections in Linear Space
+\end{center}
+
+\setlength{\leftskip}{0 in}
+$\,\,\,$ Here are how projections work. We are given $\vec{x}$ and line $l$, where $l$ may be $ax+by=c$ or $\vec{u}$. such that $||u||=1$. We want proj$_l(\vec{x})=\vec{x}^{\parallel}$. We know $\vec{x}=\vec{x}^{\parallel}+\vec{x}^{\perp}$. Parallel and perpendicular are the vector components. Lets look at what our want looks like in mathematical terms:
+$$T(\vec{x})=\vec{x}^{\parallel}$$
+$$\vec{x}^{\parallel}=k\hat{u}$$
+$$\vec{x}^{\perp}=\vec{x}-\vec{x}^{\parallel}=\vec{x}-k\hat{u}\perp L(\hat{u})$$
+$$\Rightarrow (\vec{x}-k\hat{u})\cdot\hat{u}=0$$
+$$\vec{x}\cdot\vec{u}-k(\vec{u}\cdot\vec{u})=0$$
+$$k||\hat{u}||^2=\vec{x}\cdot\hat{u}$$
+$$\Rightarrow k=\vec{x}\cdot\hat{u}$$
+
+$\,\,\,$ Our solution: $\vec{x}^{\parallel}=(\vec{x}\cdot\hat{u})\hat{u}$, so proj$_L(\vec{x})=(\vec{x}\cdot\hat{u})\hat{u}$. This is how to find the projection for any matrix.
+
+$\,\,\,$ We introduce a new term, span, which lets us create planes between vectors. Consider the following.
+
+$$\text{Let }\vec{x}=\begin{bmatrix}2\\-1\end{bmatrix},L=\text{span}\left\lbrace\begin{bmatrix}4\\3\end{bmatrix}\right\rbrace=\text{span}\lbrace \vec{v}\rbrace$$
+
+$$L=c\vec{v},||\vec{v}||=\sqrt{4^2+3^2}=5$$
+
+$$\text{Let }\vec{u} \text{ be a unit vector equal to }\hat{u},\vec{u}=\frac{\vec{v}}{||\vec{v}||}$$
+
+\newpage
+\begin{center}
+MATRIX REPRESENTATIONS AND FORMULAS
+\end{center}
+
+Projections:
+
+proj$_L(\vec{x})=(\vec{x}\cdot\vec{u})\vec{u}=\left(\begin{bmatrix}x_1\\x_2\end{bmatrix}\times\begin{bmatrix}u_1\\u_2\end{bmatrix}\right)\times\begin{bmatrix}u_1\\u_2\end{bmatrix}=(x_1u_1+x_2u_2)\begin{bmatrix}u_1\\u_2\end{bmatrix}=\begin{bmatrix}(u_1)^2x_1+u_1u_2x_2\\u_1u_2x_1+(u_2)^2x_2\end{bmatrix}=\begin{bmatrix}(u_1)^2 & u_1u_2\\u_1u_2 & (u_2)^2\end{bmatrix}\begin{bmatrix}x_1\\x_2\end{bmatrix}$\\\\
+
+Reflections:
+
+$\,\,\,$ Begin with a line $L$, input vector $\vec{x}$, we want to get a reflection of the line, called ref$_L(\vec{x})$.
+
+We begin with $\vec{x}=\vec{x}^\parallel+\vec{x}^\perp$. The reflection is ref$_L(\vec{x})=\vec{x}^\parallel-\vec{x}^\perp=\vec{x}^\parallel-(\vec{x}-\vec{x}^\parallel)=2\vec{x}^\parallel -\vec{x}$.
+
+So, ref$_L(\vec{x})=2\text{proj}_L(\vec{x})-\vec{x}=2\begin{bmatrix}(u_1)^2 & u_1u_2\\u_1u_2 & (u_2)^2\end{bmatrix}\begin{bmatrix}x_1\\x_2\end{bmatrix}-\begin{bmatrix}x_1\\x_2\end{bmatrix}$\\\\
+
+Rotations (anticlockwise):
+
+$\,\,\,$ Visually, we have $\vec{x}$ with a certain rise and run that we want to rotate. Imagine sweeping $\vec{x}$ anticlockwise 90 degrees. The original $x$ component would now be the $y$, and the original $y$ component would now be the same magnitude of the new $x$ component, but opposite direction. We call this new vector, orthogonal to $\vec{x}$, $\vec{y}$. If we use more formal names, lets call the $x$ component of $\vec{x}$, $x_1$, and the $y$ component of $\vec{x}$, $x_2$. Thus we have the following.
+$$\vec{x}=\begin{bmatrix}x_1\\x_2\end{bmatrix}\perp\vec{y}=\begin{bmatrix}x_2\\-x_1\end{bmatrix}$$
+$\,\,\,$ Both vectors are of equal magnitude. To find the $\vec{x}$ rotated anticlockwise $\theta$ degrees, we should scale each vector, $\vec{x}$ by $\cos(\theta)$, and $\vec{y}$ by $\sin(\theta)$. These two then become component vectors of our rotated vector. Thus, we have:
+$$R_\theta (\vec{x})=\cos(\theta)\vec{x}+\sin(\theta)\vec{y}$$
+$$R_\theta (\vec{x})=\cos(\theta)\begin{bmatrix}x_1\\x_2\end{bmatrix}+\sin(\theta)\begin{bmatrix}-x_2\\x_1\end{bmatrix}$$
+$$R_\theta (\vec{x})=\begin{bmatrix}\cos(\theta)x_1-\sin(\theta)x_2\\\cos(\theta)x_2+\sin(\theta)x_1\end{bmatrix}=\begin{bmatrix}\cos(\theta)x_1-\sin(\theta)x_2\\\sin(\theta)x_1+\cos(\theta)x_2\end{bmatrix}$$
+$$\text{Hence, } R_\theta (\vec{x})=\begin{bmatrix}\cos(\theta) & -\sin(\theta)\\\sin(\theta) & \cos(\theta)\end{bmatrix}\begin{bmatrix}x_1\\x_2\end{bmatrix}$$
+\end{document}

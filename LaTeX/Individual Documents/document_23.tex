@@ -1,0 +1,34 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts,amssymb,amsmath}
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+Document 23: Eigenvalues / Eigenvectors Continued
+\end{center}
+
+Reexamining the methods for computing Eigenvalues and Eigenvectors, we have a new formula for the characterisitc polynomial of the vector.
+
+$$\text{Given }A=\begin{bmatrix}a & b\\c & d\end{bmatrix}, \text{ we have } A-\lambda I=\begin{bmatrix}a-\lambda & b\\c & d-\lambda\end{bmatrix}$$
+\begin{center}\begin{tabular}{l}
+$P_A(\lambda)=(a-\lambda)(d-\lambda)-bc$\\
+$\text{Or, }P_A(\lambda)=\lambda ^2+\text{trace}(A)\lambda+\text{det}(A)$
+\end{tabular}\end{center}
+
+These formulas only work for $2\times 2$ matrices. Another theorem that exists for $2\times 2$ matrices is that for any given matrix $A$, defined above, the following holds true.
+$$\text{Define } B_1=\begin{bmatrix}\lambda _1 & 0\\0 & \lambda _2\end{bmatrix}, 
+B_2=\begin{bmatrix}\lambda _1 & 1\\0 & \lambda _2\end{bmatrix}, 
+B_3=\begin{bmatrix}\sigma & -\tau\\\tau & \sigma\end{bmatrix},\lambda =\sigma\pm\tau i$$
+$$A\sim B_1\vee A\sim B_2 \vee A\sim B_3$$
+
+It is worthy of noting that $B_1, B_2, B_3$ are each referred to as the Jordan Cannonical Forms of the matrix $A$. Shifting to diagonalization, lets define Algebraic Multiplicity as the number of times an eigenvalue apears in the characteristic polynomial.
+
+The eigenvalues of triangular matricies are the diagonal entries.
+
+Given a characteristic polynomial $P_A(\lambda)=(1-\lambda)^3(2-\lambda)^2=0$, we have $\lambda _1=1$, with an Algebraic Multiplicity of $3$, and $\lambda _2=2$, with an Algebraic Multiplicity of $2$.\\
+
+\noindent
+Definition Geometric Multiplicity: Let $A\vec{v}-\lambda\vec{v}=0\Rightarrow(A-\lambda I)\vec{v}=0\Rightarrow \vec{v}\in\text{ker}(A-\lambda I)$. Let $E_\lambda =\text{ker}(A-\lambda I)$. Then, $\text{dim}(E_\lambda)$ is the Geometric Multiplicity of $\lambda$.\\
+
+\noindent
+Definition diagonalizable: Let the function yielding the Algebraic Multiplicity be $\text{a.m.}(\lambda_i)$. Let the function yielding the Geometric Multiplicity be $\text{g.m.}(\lambda_i)$. $A_{m\times n}$ is diagonalizable $\Leftrightarrow \text{a.m.}(\lambda_i)=\text{g.m.}(\lambda_i)$. Then, $\exists B$ matrix such that $A\sim B$ with $S=[\text{eigenvector}(A)]$.
+\end{document}

@@ -1,0 +1,48 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts,amssymb,amsmath,float}
+\parindent 0px
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+Document 8: Projections and Reflections in 3D
+\end{center}
+
+\setlength{\leftskip}{0 in}
+$\,\,\,$ We envision a vector in 3D space. We equally have a plane we want to project the vector onto, where both the vector and the plane are at the origin. Now, lets add a line orthogonal to the plane. On the same side as the vector, on the line, is $\vec{x}^\parallel$, opposite it is the inverse projection of $\vec{x}$ onto the line. On the plane, we have $\vec{x}^\perp$, the projection on the plane. The plane, we call $V$.\\
+
+$\,\,\,$ We have four unique equations representing the relationships between all these values:
+\begin{enumerate}
+\item $\text{proj}_L(\vec{x})=(\vec{x}\cdot\vec{u})\vec{u}$
+\item $\text{proj}_V(\vec{x})=\vec{x}-(\vec{x}\cdot\vec{u})\vec{u}$
+\item $\text{ref}_L(\vec{x})=2(\vec{x}\cdot\vec{u})\vec{u}-\vec{x}$
+\item $\text{ref}_V(\vec{x})=\vec{x}-2(\vec{x}\cdot\vec{u})\vec{u}$
+\end{enumerate}
+
+$\,\,\,$ The derivation of the essential properties is as follows:
+$$\text{Let }x\in\mathbb{R}^3,\vec{x}=\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix},
+\text{Recall }\vec{x}=\vec{x}^\parallel+\vec{x}^\perp.$$
+$$\vec{x}^\parallel=\text{proj}_L(\vec{x})=(\vec{x}\cdot\vec{u})\vec{u}$$
+$$\vec{x}^\perp=\text{proj}_V(\vec{x})$$
+$$\vec{x}^\perp=\text{proj}_V(\vec{x})=\vec{x}-\vec{x}^\parallel=\vec{x}-\text{proj}_L(\vec{x})$$
+$$\vec{x}^\perp=\vec{x}-(\vec{x}\cdot\vec{u})\vec{u}$$
+$$\text{ref}_L(\vec{x})=\text{proj}_L(\vec{x})-\text{proj}_V(\vec{x})=\text{proj}_L(\vec{x})-(\vec{x}-\text{proj}_L(\vec{x}))=2\text{proj}_L(\vec{x})-\vec{x}=2(\vec{x}\cdot\vec{u})\vec{u}-\vec{x}$$
+$$\text{ref}_V(\vec{x})=\text{proj}_V(\vec{x})-\text{proj}_L(\vec{x})=-\text{ref}_L(\vec{x})=\vec{x}-2(\vec{x}\cdot\vec{u})\vec{u}$$\\
+
+$\,\,\,$ These transformations are linear transformations, and hence we may have an inverse transformation.\\
+\newpage
+$\,\,\,$ Definition: A function $T:X\rightarrow Y$ is invertible if $T(x)=y$ has a unique solution $x\in X$ for each $y\in Y$. We define the inverse function of $T$, written $T^{-1}$, from $Y$ to $X$, $x=T^{-1}(y)$. For matrices, consider $x\in\mathbb{R}^n\begin{matrix}A_{n\text{x}m}\\ \rightarrow \end{matrix}y\in\mathbb{R}^m$, with $\vec{y}=A\vec{x}$.
+We say $A\vec{x}$ is invertible if $A\vec{x}=\vec{y}$ has a unique solution $\vec{x}\in\mathbb{R}^n$ for all $\vec{y}\in\mathbb{R}^m$. We define the inverse of $A$ as $A^{-1}$.\\
+
+Defining when a matrix is invertible:
+$A_{m\text{x}n}$ is invertible if and only if:
+\begin{enumerate}
+\item $A$ is a square matrix, and $m=n$
+\item rref$(A)=I_{m\text{x}n}$
+\end{enumerate}
+
+$\,\,\,$ It is useful to note that additionally for a homogeneous system of equations, $A\vec{x}=\vec{0}$, we reduce the possible cases for solutions from three, to two; There must be either infinite solutions, or just 1 solution. No solutions is not an option, and if there is one solution, then $\vec{x}=\vec{0}$.
+
+$\,\,\,$ There are a couple useful property to note when dealing with a homogeneous system. $A$ is invertible $\Leftrightarrow \vec{x}=\vec{0}$ and $A$ is not invertible $\Leftrightarrow \vec{x}$ has infinite solutions.
+
+$\,\,\,$ One last thing to note: when a matrix is invertible, $A\vec{x}=b\Rightarrow\vec{x}=A^{-1}b$.
+\end{document}

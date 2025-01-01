@@ -1,0 +1,54 @@
+\documentclass[11 pt]{article}
+\usepackage{amsfonts,amssymb,amsmath}
+\parindent 0px
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+Document 18: Change of Bases\\
+\end{center}
+
+\setlength{\leftskip}{0 in}
+$\,\,\,$ In this section, we are investigating changing the basis of a vector subspace. Consider the following example.
+
+\begin{center}
+Let $\mathbb{B}_1=\lbrace f_1,f_2,\cdots,f_n\rbrace,\mathbb{B}_2=\lbrace g_1,g_2,\cdots,g_n\rbrace$.
+
+$f=c_1f_1+c_2f_2+\cdots+c_nf_n$
+
+$[f]_{\mathbb{B}_1}=\begin{bmatrix}c_1\\c_2\\\vdots\\c_n\end{bmatrix}$.
+\end{center}
+
+$\,\,\,$Then, putting the coordinates into basis 2 yields:
+\begin{center}
+$[f]_{\mathbb{B}_2}=[c_1f_1+c_2f_2+\cdots+c_nf_n]_{\mathbb{B}_2}$.
+
+$[f]_{\mathbb{B}_2}=c_1[f_1]_{\mathbb{B}_2}+c_2[f_2]_{\mathbb{B}_2}+\cdots+c_n[f_n]_{\mathbb{B}_2}$.
+
+$[f]_{\mathbb{B}_2}=\begin{bmatrix}[f_1]_{\mathbb{B}_2} & [f_2]_{\mathbb{B}_2} & \cdots & [f_n]_{\mathbb{B}_2}\end{bmatrix}\begin{bmatrix}c_1\\c_2\\\vdots\\c_n\end{bmatrix}$
+$[f]_{\mathbb{B}_2}=\begin{bmatrix}[f_1]_{\mathbb{B}_2} & [f_2]_{\mathbb{B}_2} & \cdots & [f_n]_{\mathbb{B}_2}\end{bmatrix}[f]_{\mathbb{B}_1}$
+\end{center}
+
+$\,\,\,$We define the change of basis transformation in matrix form from $[f]_{\mathbb{B}_1}$ to $[f]_{\mathbb{B}_2}$ with $S=\begin{bmatrix}[f_1]_{\mathbb{B}_2} & [f_2]_{\mathbb{B}_2} & \cdots & [f_n]_{\mathbb{B}_2}\end{bmatrix}$.
+
+$\,\,\,$Let $D$ be an the standard matrix of a given a transformation $T:V\rightarrow V,T(f)=D(f)=f\prime$. Let $f\in V=\text{span}\lbrace e^x,e^{-x}\rbrace$. We want to find the standard matrix for the transformations in two different Bases. We know that $\mathbb{B}_2\lbrace e^x,e^{-x}\rbrace$ and $\mathbb{B}_1\lbrace e^x+e^{-x},e^x-e^{-x}\rbrace$.\\
+
+The steps to finding these matricies are always the same.
+\begin{enumerate}
+\item Apply the transformation to each of the bases elements.
+\item Rewrite each output in coordinates.
+\item Define column matrices in terms of the coefficients of the coordinates.
+\item The solution matrix is a block matrix made up of these column vectors in order.
+\end{enumerate}
+
+$\,\,\,$Lets return to our example with basis $\mathbb{B}_1$ and basis $\mathbb{B}_2$ for the transformation $T(f)=f\prime$.\\
+
+For basis one:
+
+$\left.\begin{matrix}T(e^x)=e^x=1(e^x)+0(e^{-x})\vdash \begin{bmatrix}1\\0\end{bmatrix}\\T(e^{-x})=-e^{-x}=0(e^x)+(-1)(e^{-x})\vdash \begin{bmatrix}0\\-1\end{bmatrix}\end{matrix}\right\rbrace$
+$\therefore A=\begin{bmatrix}1 & 0\\0 & -1\end{bmatrix}$\\
+
+For basis two:
+
+$\left.\begin{matrix}T(e^x+e^{-x})=e^x-e^{-x}=0(e^x+e^{-x})+1(e^x-e^{-x})\vdash \begin{bmatrix}0\\1\end{bmatrix}\\T(e^x-e^{-x})=e^x+e^{-x}=1(e^x+e^{-x})+0(e^x-e^{-x})\vdash \begin{bmatrix}1\\0\end{bmatrix}\end{matrix}\right\rbrace$
+$\therefore B=\begin{bmatrix}0 & 1\\1 & 0\end{bmatrix}$
+\end{document}

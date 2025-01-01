@@ -1,0 +1,44 @@
+\documentclass[11 pt]{article}
+\usepackage{amsfonts,amssymb,amsmath}
+\parindent 0px
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+Document 14: Equivalent Properties and Trace
+\end{center}
+
+$\,\,\,$Some additional properties which are equivalent will be noted, and Trace will be described.
+
+$\,\,\,$Trace is a function that sums all diagonal elements. Lets prove the trace of a 3x3 matrix is a linear transformation. We define the transformation $T:\mathbb{R}^{3\times 3}\rightarrow\mathbb{R}$.
+
+$$\text{Let }a_{11},a_{12},\cdots,a_{33} \text{ and } b_{11},b_{12},\cdots,b_{11}\text{ be arbitrary scalars.}$$
+
+$$\text{Set }A=\begin{bmatrix}a_{11} & a_{12} & a_{13}\\a_{21} & a_{22} & a_{23}\\a_{31} & a_{32} & a_{33}\end{bmatrix}, B=\begin{bmatrix}b_{11} & b_{12} & b_{13}\\b_{21} & b_{22} & b_{23}\\b_{31} & b_{32} & b_{33}\end{bmatrix}.$$\\
+
+$\,\,\,$We begin by proving $T(\vec{w}+\vec{v})=T(\vec{w})+T(\vec{v})$. Since $A,B$ are arbitrary, lets apply the transformation to $A,B$.
+$$T(A+B)=T\left(\begin{bmatrix}a_{11}+b_{11} & a_{12}+b_{12} & a_{13}+b_{13}\\a_{21}+b_{21} & a_{22}+b_{22} & a_{23}+b_{23}\\a_{31}+b_{31} & a_{32}+b_{32} & a_{33}+b_{33}\end{bmatrix}\right)=(a_{11}+b_{11})+(a_{22}+b_{22})+(a_{33}+b_{33})$$
+$$\text{Now, }T(A+B)=(a_{11}+a_{22}+a_{33})+(b_{11}+b_{22}+b_{33})=T(A)+T(B)$$
+
+$\,\,\,$Next we prove $T(k\vec{v})=kT(\vec{v})$. Since $A$ is arbitrary, lets apply the transformation to $A$.
+
+$$T(kA)=T\left(\begin{bmatrix}ka_{11} & ka_{12} & ka_{13}\\ka_{21} & ka_{22} & ka_{23}\\ka_{31} & ka_{32} & ka_{33}\end{bmatrix}\right)=ka_{11}+ka_{22}+ka_{33}$$
+$$\text{Now, }T(kA)=k(a_{11}+a_{22}+a_{33})=kT(A)$$
+
+$\,\,\,$Hence, since $T(\vec{v}+\vec{w})=T(\vec{v})+T(\vec{w})\land T(k\vec{v})=kT(\vec{v})$, we have $T$ is a linear transformation.\\
+
+$\,\,\,$On the fundamental theorem of linear algebra, recall for a matrix $A_{m\times n}$, $\text{dim}(\text{ker}(A))+\text{dim}(\text{im}(A))=n$. Now, $\text{dim}(\text{ker}(A))$ is the number of redundant column vectors, so $\text{dim}(\text{ker}(A))=\text{nullity}(A)$. Additionally, $\text{dim}(\text{im}(A))$ is the number of non redundant column vectors, so $\text{dim}(\text{im}(A))=\text{rank}(A)$.
+
+\newpage
+Equivalent Properties (With Additions):
+\begin{enumerate}
+\item A is invertible
+\item $A\vec{x}=\vec{b}$ has a unique solution: $\vec{x}=A^{-1}\vec{b}$.
+\item rref$(A)=I_n$
+\item rank$(A)=n$ has no redundancy
+\item ker$(A)=\{\vec{0}\}$
+\item im$(A)=\mathbb{R}^n$
+\item Columns of A form a basis for $\mathbb{R}^n$
+\item Columns of A span $\mathbb{R}^n$
+\item Columns of A are linearly independent
+\end{enumerate}
+\end{document}

@@ -1,0 +1,69 @@
+\documentclass[12pt]{article}
+\pagestyle{empty}
+\parindent 0px
+\usepackage{amssymb,amsfonts,amsmath,float}
+\begin{document}
+\begin{center}
+Document 3: Reduced Row Echelon Form and Rank
+\end{center}
+
+\setlength{\leftskip}{0 in}
+$\,\,\,$ Definition: The rank of a matrix A is the number of leading 1s in the reduced row echelon form of A.
+
+Corollary: Consider $A_{m\text{x}n}x_{n\text{x}1}=b_m$.
+\begin{enumerate}
+\item rank($A$) $\leq m \land$ rank($A$) $\leq n$. Proof: There is at most one leading 1 in each row or colum of the reduced row echelon form.
+\item Let $A,b$ be matrices. Define an augmented matrix $\left[\left.A\right|b\right]$. Then, rank($A$)$=m\rightarrow Ax=b$ is consistent. Proof: Let $c$ be any nonzero number. A redundancy is defined as $\left[\left.0+0+\cdots+0\right| c\right]$. There is a leading 1 in each row, so $\left[\left.0+0+\cdots+0\right| c\right]\not\in A$
+\item If rank$(A)=n$ then $Ax=b$ has at most one solution.
+\item rank($A$) $<n\rightarrow$ there are $n-\text{rank(}A$) free parameters. Either $Ax=b$ is inconssitent or it has $\infty$-many solutions.
+\end{enumerate}
+
+$\,\,\,$ Definition: a matrix is considered consistent if it represents a system of linear equations that has 1 or more solutions. If the system has no solution, or equally if the matrix has a determinant of 0, then the matrix is considered inconsistent. Now, consider the following matrices.
+$$A=\left[ \begin{matrix}
+a_{11}\cdots a_{1n}\\
+\vdots\\
+a_{m1}\cdots a_{mn}
+\end{matrix}\right] _{m\text{x}n},
+B=\left[ \begin{matrix}
+b_{11}\cdots b_{1n}\\
+\vdots\\
+b_{m1}\cdots b_{mn}
+\end{matrix}\right] _{m\text{x}n},
+C=\left[ \begin{matrix}
+c_{11}\cdots c_{1n}\\
+\vdots\\
+c_{r1}\cdots c_{rn}
+\end{matrix}\right] _{n\text{x}r}$$
+
+$\,\,\,$ Basic matrix algebra is defined as follows. Let k be a scalar, and use matrices $A,B$ and $C$.
+\begin{enumerate}
+\item Equality: $A=B\leftrightarrow a_{ij}=b_{ij}$ where $i$ and $j$ are typical indices for rows and columns in matrices $A$ and $B$.
+\item Addition/Subtration: $A\pm B=\left[ a_{ij}\pm b_{ij}\right]$. In other words $A\pm B$ is a matrix where every value at indices $i,j$ is equal to $a_{ij}\pm b_{ij}$.
+\item Scalar Multiplication: $kA=\left[ ka_{ij}\right]$. In other words $kA$ is a matrix where every value at indices $i,j$ is equal to $ka_{ij}$.
+\item Matrix Multiplication: $P_{m\text{x}r}=A_{m\text{x}n}C_{n\text{x}r}$. Where elements of $P$ are determined using the following process. Let $i$ represent indices for rows, drawn from the domain $1\leq i\leq m$. Let $j$ represent indices for columns, drawn from the domain $1\leq j \leq r$. Elements of the matrix are defined $p_{ij}=\sum_{k=1}^{n} a_{ik}c_{kj}$.
+\end{enumerate}
+
+$\,\,\,$ Product of matricies are defined this way in order to preserve constancy with the composition of linear transformations.\\
+
+Algebra of Vectors:\\
+
+Let $\vec{u}=\left[\begin{matrix}u_1\\\vdots\\u_n\end{matrix}\right]$,
+$\vec{v}=\left[\begin{matrix}v_1\\\vdots\\v_n\end{matrix}\right]$,
+$A_{m\text{x}n}$ be a matrix with $m$ rows and $n$ columns.\\\\
+
+$\,\,\,$ We will use these definitions as we explore the matrix representations of vectors and performing algebra with them. Below, we have these definitions of vector algebra.
+\begin{enumerate}
+\item Scalar Multiplication: $k\vec{u}=\begin{bmatrix}ku_1\\ \vdots\\ku_n \end{bmatrix}$.
+\item Dot Product (Scalar Product of Vectors): $\vec{u}\cdot\vec{v}=u_1v_1+\cdots +u_nv_n$.
+\item Outer Product (Not Cross Product): $\vec{u}\text{x}\vec{v}=\begin{bmatrix}u_1v_1 & u_1v_2 & \cdots & u_1v_n\\
+\vdots\\
+u_nv_1 & u_nv_2 & \cdots & u_nv_n
+\end{bmatrix}$
+\item Matrix Multiplication: Matrices can be divided into columns and multiplied by a vector in parts. This is equivalent to simple matrix multiplication defined before. An equation demonstrating this multiplication can be found below. $$A\vec{x}=\begin{bmatrix}\!\left. A_1 \right| & \left. \!\!\!\! A_2 \right| & \!\!\!\! \left. \cdots \right| & \!\!\!\! A_n\end{bmatrix}\begin{bmatrix}x_1\\ x_2\\ \vdots\\ x_n\end{bmatrix}=A_1x_1+A_2x_2+\cdots+A_nx_n$$.
+\end{enumerate}
+
+Linear Combinations:\\
+
+$\,\,\,$ Finally, we say that a vector $\vec{b}\in\mathbb{R}^n$ is a linear combination if there exists scalars $c_1,\cdots,c_m$, and vectors $\vec{v}_1,\vec{v}_2,\cdots,\vec{v}_m\in\mathbb{R}^n$ such that $\vec{b}=c_1\vec{v_1}+c_2\vec{v_2}+\cdots+c_m\vec{v_m}$. Additionally, the right hand side is considered the span of the vector.
+
+\end{document}

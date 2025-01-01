@@ -1,0 +1,34 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts,amssymb,amsmath,float}
+\pagestyle{empty}
+\parindent 0px
+\begin{document}
+\begin{center}
+Document 7: Linear Transformations
+\end{center}
+
+\setlength{\leftskip}{0 in}
+Conceptual review of rotations:\\
+
+$\,\,\,$ We are given a vector $\vec{x}$ broken up into a vertical component $x_2$ and a horizontal component $x_1$, which is rotated up into quadrant 1 by an angle $\alpha$. We want to rotate this vector by an angle $\theta$ about the origin from its current position of $\alpha$ above the positive $x$-axis. First, we know $x_1=|\vec{x}|\cos(\alpha)$ and $x_2=|\vec{x}|\sin(\alpha)$. After the transformation, we will have $x_1\prime=|\vec{x}|\cos(\alpha +\theta)$ and $x_2\prime=|\vec{x}|\sin(\alpha +\theta)$. Therefore, $x_1\prime=|\vec{x}|\cos(\alpha)\cos(\theta)-|\vec{x}|\sin(\alpha)\sin(\theta)$ and $x_2\prime=|\vec{x}|\sin(\alpha)\cos(\theta)+|\vec{x}|\sin(\theta)\cos(\alpha)$. Hence, we have $x_1\prime=x_1\cos(\theta)-x_2\sin(\theta)$ and $x_2\prime=x_1\cos(\theta)+x_2\cos(\alpha)$.\\\\
+
+\begin{center}
+SUMMARY TABLE: Transformations Table\\
+\end{center}
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Name & Formula & Matrix Representation\\\hline
+Projection & proj$_L(\vec{x})=(\vec{x}\cdot\vec{u})\vec{u}$ & $A=\begin{bmatrix}(u_1)^2 & u_1u_2\\u_1u_2 & (u_2)^2\end{bmatrix}$\\
+Reflection & ref$_L(\vec{x})=2\text{proj}_L(\vec{x})-\vec{x}$ & $A=\begin{bmatrix}2(u_1)^2-1 & 2u_1u_2\\2u_1u_2 & 2(u_2)^2-1\end{bmatrix}$\\
+Rotation & $R_{\theta}\begin{bmatrix}x_1\\x_2\end{bmatrix}=e^{i\theta}\vec{z}$ & $R_\theta=\begin{bmatrix}
+\cos(\theta) & -\sin(\theta)\\\sin(\theta) & \cos(\theta)\end{bmatrix}$\\\hline
+\end{tabular}
+\end{center}
+
+$z=\begin{bmatrix}x_1\\x_2\end{bmatrix}$ or $z=x_1+x_2i_1$, $i=\sqrt{-1}$.
+
+Eulers Identity says:
+$e^{i\theta}(x_1+x_2i)=(\cos(\theta)+\sin(\theta)i$
+\end{document}

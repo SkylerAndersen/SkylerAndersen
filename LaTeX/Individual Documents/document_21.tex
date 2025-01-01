@@ -1,0 +1,83 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts,amssymb,amsmath}
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+Document 21: Determinants
+\end{center}
+
+\vspace{0.25cm}
+Recall the formula for calculating the determinant of a $2\times 2$ matrix. Consider matrix $A$, defined by arbitrary elements $a,b,c,d\in\mathbb{R}$.
+
+$$A=\begin{bmatrix}a & b\\ c & d\end{bmatrix}\Rightarrow \text{det}(A)=ad-bc$$
+$$\text{Also, }A\text{ is invertible}\Leftrightarrow \text{det}(A)\neq 0$$
+
+Now, we redefine A to consider a larger matrix. Define column vectors $\vec{u},\vec{v},\vec{w}$ implicitly in the following definition:
+
+$$A=\begin{bmatrix}a_{11} & a_{12} & a_{13}\\a_{21} & a_{22} & a_{23}\\a_{31} & a_{32} & a_{33}\end{bmatrix}=\begin{bmatrix} & & \\\vec{u} & \vec{v} & \vec{w}\\ & & \end{bmatrix}$$
+
+Geometrically, the determinant of $A$ is defined: det$(A)=\vec{u}\cdot(\vec{v}\times\vec{w})$. Additionally the same property of invertability also applies to $3\times 3$ matrices, and can be stated as: $A\text{ is invertible}\Leftrightarrow \vec{u}\cdot(\vec{v}\times\vec{w})\neq 0$.
+
+More generally, determinants can be computed with the Laplace Expansion for Determinants. Laplace expansion works by removing one row or column, then if a column was removed, it iterates over each row, and if a row was removed, it iterates over each column. Then the i,j'th element is multiplied by the i,j'th sub-matrix. Because it can be done two ways, there are two options for the formula.
+
+Let $A_{n\times n}$ be an arbitrary matrix. Define $A_{ij}$, the $A$ matrix without row $i$ or column $j$. (Note: the determinant of $A_{ij}$ is called the i,j'th minor of $A$.) The Laplace Expansion for Determinants of A is:
+
+\begin{center}\begin{tabular}{l}
+$\sum_{j=1}^n{(-1)^{i+j}a_{ij}\text{det}(A_{ij})}$\vspace{0.1cm}\\
+Or equally, $\sum_{i=1}^n{(-1)^{i+j}a_{ij}\text{det}(A_{ij})}$
+\end{tabular}\end{center}
+
+A shortcut for upper and lower triangular matrices is that their determinants are equal to the product of their diagonal entries.
+
+Additionally, the determinant of an $n\times n$ matrix is a linear transformation of each row when the remaining rows are held fixed. That means that for one row, we can apply row operations and have the properties of linearity apply such as for the following:
+
+\newpage
+Consider finding the determinant of a column vector with the same elements as this set: $\lbrace e_1,e_2,\cdots,e_r\cdots,e_n\rbrace$. Holding all rows other than $r$ fixed, and rewriting $r$ in terms of scalars $u,k,v\in\mathbb{R}$ such that $r=u+kv$, we have the following.
+
+$$\text{det}\left(\begin{bmatrix}
+a_1\\
+\vdots\\
+a_{r-1}\\
+u+kv\\
+a_{r+1}\\
+\vdots\\
+a_n
+\end{bmatrix}\right)=
+\text{det}\left(\begin{bmatrix}
+a_1\\
+\vdots\\
+a_{r-1}\\
+u\\
+a_{r+1}\\
+\vdots\\
+a_n
+\end{bmatrix}\right)+
+k\text{det}\left(\begin{bmatrix}
+a_1\\
+\vdots\\
+a_{r-1}\\
+v\\
+a_{r+1}\\
+\vdots\\
+a_n
+\end{bmatrix}\right)
+$$
+
+\noindent
+Additional Properties for the Section:
+\begin{enumerate}
+\item If one row of $A$ is multiplied by a scalar $k$ to yield $B$, then $\text{det}(B)=k\cdot\text{det}(A)$
+\item If $n$ row swaps are performed on $A$ to yield $B$, $\text{det}(B)=(-1)^n\text{det}(A)$
+\item If a multiple of one row in $A$ is added to another row in $A$ to yield $B$, then $\text{det}(A)=\text{det}(B)$
+\item det$(AB)=(\text{det}(A))(\text{det}(B))$
+\item $A\sim B\Rightarrow \text{det}(A)=\text{det}(B)$. However, the converse is not true.
+\item det$(A^{-1})=\frac{1}{\text{det}(A)}=(\text{det}(A))^{-1}$
+\item det$(A^T)=\text{det}(A)$
+\item $A$ is orthogonal $\Rightarrow\text{det}(A)=\pm 1$
+\item Let $A$ be orthogonal with det$(A)=1\Rightarrow A$ is a rotation matrix.
+\item Consider vectors $\vec{v}_1,\vec{v}_2$ which form two side lengths of a parallelogram, with angle $\theta$ between them, and with area $a$. Given $A=[\vec{v}_1|\vec{v}_2]$, $|\text{det}(A)|=a\Rightarrow \text{det}(A)=||\vec{v}_1||\cdot ||\vec{v}_2||\sin(\theta)$
+\item $|\text{det}(A)|=||\vec{v}_1||\cdot||\vec{v}_2^\perp||\cdots ||\vec{v}_n^\perp||$
+\item Cramer's Rule: Given $A\vec{x}=\vec{b}$ to solve, let $A_{bi}$ be the matrix $A$ with the $i$'th column replaced by $\vec{b}$. By Cramer's Rule we have $x_i=\frac{\text{det}(A_{bi})}{\text{det}(A)}$
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,37 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts,amssymb,amsmath,float}
+\parindent 0px
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+Document 9: Computing the inverse of a matrix
+\end{center}
+
+\setlength{\leftskip}{0in}
+$\,\,\,$ To compute the inverse of a matrix, write the augmented matrix $[A_{n\times n}|I_n]$, compute the reduced row echelon form of the augmented matrix, yielding the identity matrix on the right. In other terms, rref$([A|I])=[I|A^{-1}]$.
+
+$\,\,\,$ For the special case of a matrix $A_{2\times 2}=\begin{bmatrix}a & b\\c & d\end{bmatrix}$, $A$ is invertible $\Leftrightarrow$ det$(A)=ad-bc\not =0$. Let $A_{p\times n},B_{m\times p}$. Then $BA$ is defined and $T(\vec{x})=B(A\vec{x}),T:\mathbb{R}^n\rightarrow\mathbb{R}^m$ and $(BA)_{m\times n}$. In general, $BA\not =AB$ unless $A=B^{-1}$ and $B=A^{-1}$\\
+
+Definition: Matrix properties
+\begin{enumerate}
+\item Let $A_{q\times n},B_{m\times p}$ be arbitrary matrices. Then $BA$ is defined $\Leftrightarrow p=q$.
+\item Let $A_{p\times n},B_{m\times p}$ be arbitrary matrices. Then $BA$ is defined, and $BA_{m\times n}$ is the standard matrix for a transformation $T:\mathbb{R}^n\rightarrow\mathbb{R}^m,T(\vec{x})=B(A\vec{x})$
+\item For arbitrary matrices $A,B$ it is not guaranteed that $AB=BA$.\\
+\end{enumerate}
+
+Properties of Invertable Matrices:
+\begin{enumerate}
+\item Let $A_{n\times n}$ be an invertable matrix. Then, $AA^{-1}=I_n,A^{-1}A=I_n$.
+\item Let $A_{m\times n}$ be an invertable matrix. Then, $I_mA_{m\times n}=A_{m\times n}I_n=A$.
+\item Matrix multiplication is associative, so $(AB)C=A(BC)=ABC$.
+\item Let $A_{n\times n},B_{n\times n}$ be invertable matrices. Then $(AB)^{-1}=A^{-1}B^{-1}$.
+\item Let $A_{m\times p},B_{m\times p},C_{p\times n},D_{p\times n}$ be matrices. Then $A(C+D)=AC+AD$ and $(A+B)C=AC+BC$\\
+\end{enumerate}
+
+Criteria for Invertability: Let $A_{n\times n},B_{n\times n}$. Set $BA=I_n$. Then,
+\begin{enumerate}
+\item $A$ and $B$ are both invertible.
+\item $A^{-1}=B$, and $B^{-1}=A$
+\item $AB=I_n$
+\end{enumerate}
+\end{document}

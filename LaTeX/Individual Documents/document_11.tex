@@ -1,0 +1,42 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb,amsmath,amsfonts,float}
+\pagestyle{empty}
+\parindent 0px
+\begin{document}
+\begin{center}
+Document 11: Summary Section
+\end{center}
+
+\setlength{\leftskip}{0 in}
+$\,\,\,$ First, was linear equations. There are linear and nonlinear systems, and matrix representations. Additionally, elementary row operations. These are represented with $E_i,E_j$. One can compute a reduced row echelon form of a matrix, and classify solutions after reading the previous sections as well.
+
+Classification of solutions (Given $A_{m\times n}$):
+\begin{enumerate}
+\item rank$(A)\leq m,n$.
+\item rank$(A)=m$, the system is consistent.
+\item rank$(A)=n$, at most one solution.
+\item rank$(A)<n$, Either infinite solutions or none.
+\item rank$(A)\equiv$ Number of nonzero rows in rref.
+\end{enumerate}
+
+$\,\,\,$ Second, was Linear Transformations. One can prove if something is linear or nonlinear. Additionally, earlier sections covered the formulas for 2D transformations. Next, one can move to 3D, and learn the linear transformations in 3D from the previous sections as well.
+
+\begin{center}
+SUMMARY TABLE: Transformations Table
+\end{center}
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Name & Formula & Matrix Representation\\\hline
+Line Projection & proj$_L(\vec{x})=(\vec{x}\cdot\vec{u})\vec{u}$ & $A=\begin{bmatrix}(u_1)^2 & u_1u_2\\u_1u_2 & (u_2)^2\end{bmatrix}$\\
+Line Reflection & ref$_L(\vec{x})=2\text{proj}_L(\vec{x})-\vec{x}$ & $A=\begin{bmatrix}2(u_1)^2-1 & 2u_1u_2\\2u_1u_2 & 2(u_2)^2-1\end{bmatrix}$\\
+Plane Projection & proj$_V(\vec{x})=\vec{x}-(\vec{x}\cdot\vec{u})\vec{u}$ & $A=\begin{bmatrix}1-(u_1)^2 & u_1u_2\\u_1u_2 & 1-(u_2)^2\end{bmatrix}$\\
+Plane Reflection & ref$_V(\vec{x})=\vec{x}-2\text{proj}_L(\vec{x})$ & $A=\begin{bmatrix}1-2(u_1)^2 & -2u_1u_2\\-2u_1u_2 & 1-2(u_2)^2\end{bmatrix}$\\
+Rotation & $R_{\theta}\begin{bmatrix}x_1\\x_2\end{bmatrix}=e^{i\theta}\vec{z}$ & $R_\theta=\begin{bmatrix}
+\cos(\theta) & -\sin(\theta)\\\sin(\theta) & \cos(\theta)\end{bmatrix}$\\\hline
+\end{tabular}
+\end{center}
+
+$\,\,\,$ The inverse of a transformation is also something that previous sections cover. For a $2\times 2$ matrix, $A^{-1}=\frac{1}{\text{det}(A)}\begin{bmatrix}d & -b\\-c & a\end{bmatrix}$, where det$(A)=ad-bc$. Finally, previous sections covered the algebra of matrices and vectors.
+\end{document}

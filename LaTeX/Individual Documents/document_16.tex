@@ -1,0 +1,50 @@
+\documentclass[11 pt]{article}
+\usepackage{amsfonts,amssymb,amsmath}
+\parindent 0px
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+Document 16: Linear Spaces\\
+\end{center}
+
+\setlength{\leftskip}{0 in}
+$\,\,\,$ In this section, we are investigating Linear Spaces. First, it is important to define what a linear space is.\\
+
+Definition: A linear space $V$ is a set that satisfies the following:
+
+$\,\,\,$ Let $f,g,h\in V,c,k\in\mathbb{R}$ be arbitrary.
+\begin{enumerate}
+\item $(f+g)+h=f+(g+h)$
+\item $f+g=g+f$
+\item $\exists 0\in V$ such that $f+0=f$
+\item $k(f+g)=kf+kg$
+\item $(c+k)f=cf+kf$
+\item $c(kf)=(ck)f$
+\item $1*f=f$
+\end{enumerate}
+
+$\,\,\,$ Revisiting a previous definition, let $V$ be a vector space. A subset $W\subset V$ is a subspace of $V$ if 1) $0\in W$, 2) $W$ is closed under addition, 3) $W$ is closed under scalar multiplication. Lets add a few more properties.\\
+
+Definition: Let $V$ be a vector subspace $\lbrace f_1,\cdots,f_n\rbrace\in V$.
+\begin{enumerate}
+\item span$\lbrace f_1,\cdots,f_n\rbrace=V$ if $\forall f\in V,f=c_1,f_1+\cdots+c_nf_n$.
+\item $\lbrace f_1,\cdots,f_n\rbrace=V$ are linearly independent $\Leftrightarrow (c_1f_1+\cdots+c_nf_n=0\Leftrightarrow c_1=\cdots=c_n=0$.
+\item $\mathbb{B}=\lbrace f_1,\cdots,f_n\rbrace=V$ is a basis for $V$ if parts 1) and 2) are satisfied and the right half of the equation $f=\lbrace f_1,\cdots,f_n\rbrace=V$ are teh coordinates of $f$ with respect to $\mathbb{B}$. i.e. $[f]_\mathbb{B}=\begin{bmatrix}c_1\\\vdots\\c_n\end{bmatrix}$.
+\item $T(f)=[f]_\mathbb{B},T:V\rightarrow\mathbb{R}^n$ is the B-coordinate Transformation.
+\item The $\mathbb{B}$ coordinate transformation is invertible and $T^{-1}(\begin{bmatrix}c_1\\\vdots\\c_n\end{bmatrix})=f_1+\cdots+f_n=f$
+\end{enumerate}
+
+$\,\,\,$ Note, the dimension of a subspace is equal to the number of elements (the cardinality) of the basis. An infinite basis implies an infinite dimension. Now lets revisit linear transformations with this new knowledge in mind.\\
+
+Definition Let $V,W$ be arbitrary subspaces.
+\begin{enumerate}
+\item $T:V\rightarrow W$ is linear if $T(f+g)=T(f)+T(w)\land T(kf)=kT(f)$.
+\item im$(T)=\lbrace T(f):\forall f\in V\rbrace$.
+\item ker$(T)=\lbrace f\in V:T(f)=0\rbrace$.
+\item im$(T)$ is a subspace of cod$(W)$ and ker$(T)$ is a subspace of dom$(V)$.
+\item im$(T)$ has finite dimensions $\Rightarrow \text{dim}(\text{im}(T))\equiv\text{rank}(T)$. And ker$(T)$ has finite dimensions $\Rightarrow \text{dim}(\text{ker}(T))\equiv\text{nullity}(T)$.
+\item If $V$ has finite dimensions, $\Rightarrow \text{dim}(V)=\text{dim}(\text{ker}(T))+\text{dim}(\text{im}(T))$.
+\end{enumerate}
+
+
+\end{document}
