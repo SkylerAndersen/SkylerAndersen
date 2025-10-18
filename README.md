@@ -1,10 +1,10 @@
-<html><h1 align="center">Skyler Andersen</h1><h3 align="center">Computer Programmer</h3></html>
+<html><h1 align="center">Skyler Andersen</h1><h3 align="center">Software Developer</h3></html>
   
 **About Me**  
->   Hi, my name is Skyler Andersen. I am a computer programmer, currently in year two of pursuing my Bachelors. I mainly program in Java, but I am proficient with C++, and use LaTeX all the time for notes and formal documents. I have also worked with MIPS for reverse engineering and to get experience with writing assemblers and disassemblers.  
+>   Hi, my name is Skyler Andersen. I am a software developer, currently in year three of pursuing my Bachelors. I mainly write Java and C++, but am familiar with JavaScript, R, and Python. Additionally, I use LaTeX all the time for notes and formal documents. My primary areas of interest are enterprise software and embeded programming, and I have worked with MIPS for reverse engineering and to get experience with writing assemblers and disassemblers.  
   
 **Current Projects**  
->   Currently I am working on an attendance tracker to help teachers recognize students that need extra assistance remaining in the classroom and focussing on their studies. I am also working on a custom programming language usable for Minecraft data pack development, and a suit of compilers/transpilers to turn the programming language into a custom pseudo assembly/bytecode and into different Minecraft command syntaxes.  
+>   I have just finished a Translator CLI for English<->Spanish translations, and a ToDo list I built to replace Microsoft ToDos (as there are some visual bugs in Microsoft ToDos on MacOS that I couldn't get past). Currently, I am working on a platformer I am building from scratch in Java; ask me about my AsynchronousDispatch, I'd love to talk about it.  
   
 **Completed Projects**  
-> Right now, I have one large project. This is my Assembly Project. The source code is not available, but I have left the code structure without implementation for reference. Additionally, my explorations folder has some code snippets from topics in computer science that I have looked into or explored. Finally, my LaTeX folder has examples of documents I have made with LaTeX.
+> Right now, I have a few large project. These include my Assembly Project, LocalTranslateEnEs, ToDos, and Gamification. Check them out.
